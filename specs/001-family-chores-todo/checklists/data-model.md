@@ -3,6 +3,7 @@
 **Purpose**: Validate data model requirements completeness and quality
 **Created**: 2026-04-27
 **Feature**: specs/001-family-chores-todo/spec.md
+**Audience**: Reviewer (PR)
 
 ---
 

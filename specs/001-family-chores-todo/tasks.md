@@ -123,7 +123,7 @@
 ### Implementation for User Story 1
 
 - [ ] T019 [P] [US1] Create User model and CRUD service in backend/src/models/user.py
-- [ ] T020 [P] [US1] Create Todo model and CRUD service in backend/src/models/todo.py
+- [ ] T020 [P] [US1] Create Todo model and CRUD service in backend/src/models/todo.py (includes completion_date per FR-014)
 - [ ] T021 [P] [US1] Create Settings model for locations/priorities in backend/src/models/settings.py
 - [ ] T022 [US1] Implement GET /api/todos endpoint in backend/src/api/todos.py
 - [ ] T023 [US1] Implement POST /api/todos endpoint in backend/src/api/todos.py
@@ -433,26 +433,6 @@
 
 ---
 
-## Phase 11: User Story 2 Enhancement - User Authentication (Priority: P1)
-
-**Goal**: Full authentication with login/logout, protected routes
-
-**Independent Test**: Login with credentials, verify token; access protected routes, verify unauthorized without token; logout, verify token cleared
-
-### Implementation for User Story 2 Enhancement
-
-- [ ] T083 [P] [US2] Implement JWT token generation with expiration in backend/src/utils/auth.py
-- [ ] T084 [P] [US2] Create auth middleware for protected routes in backend/src/middleware/auth.py
-- [ ] T085 [US2] Implement POST /api/auth/logout endpoint in backend/src/api/auth.py
-- [ ] T086 [US2] Implement auth guard for protected routes in frontend/src/hooks/useAuth.tsx
-- [ ] T087 [US2] Add login form in frontend/src/components/LoginForm.tsx
-- [ ] T088 [US2] Implement protected route wrapper in frontend/src/components/ProtectedRoute.tsx
-- [ ] T089 [US2] Add user menu with logout in frontend/src/components/UserMenu.tsx
-
-**Checkpoint**: Full authentication working
-
----
-
 ## Phase 11a: TDD Tests - User Authentication (Priority: P1)
 
 **Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
@@ -468,6 +448,45 @@
 - [ ] TEST-AUTH-004 Write Vitest test for LoginForm validation and submission
 - [ ] TEST-AUTH-005 Write Vitest test for ProtectedRoute redirects unauthenticated users
 - [ ] TEST-AUTH-006 Write Vitest test for auth context provides user state
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 11b: Implementation - User Authentication (Priority: P1)
+
+**Goal**: Full authentication with login/logout, protected routes
+
+**Independent Test**: Login with credentials, verify token; access protected routes, verify unauthorized without token; logout, verify token cleared
+
+### Implementation for User Authentication
+
+- [ ] T083 [P] [US2] Implement JWT token generation with expiration in backend/src/utils/auth.py
+- [ ] T084 [P] [US2] Create auth middleware for protected routes in backend/src/middleware/auth.py
+- [ ] T085 [US2] Implement POST /api/auth/logout endpoint in backend/src/api/auth.py
+- [ ] T086 [US2] Implement auth guard for protected routes in frontend/src/hooks/useAuth.tsx
+- [ ] T087 [US2] Add login form in frontend/src/components/LoginForm.tsx
+- [ ] T088 [US2] Implement protected route wrapper in frontend/src/components/ProtectedRoute.tsx
+- [ ] T089 [US2] Add user menu with logout in frontend/src/components/UserMenu.tsx
+
+**Checkpoint**: Full authentication working
+
+---
+
+## Phase 11c: TDD Tests - Optimistic Locking (Priority: P1)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Backend Tests for Optimistic Locking (FR-018)
+
+- [ ] TEST-OPT-001 Write Jest test for concurrent update detection (version conflict)
+- [ ] TEST-OPT-002 Write Jest test for conflict notification response format
+- [ ] TEST-OPT-003 Write Jest test for version field increments on update
+
+### Frontend Tests for Optimistic Locking
+
+- [ ] TEST-OPT-004 Write Vitest test for conflict notification displays to user
+- [ ] TEST-OPT-005 Write Vitest test for retry mechanism on version conflict
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -500,6 +519,12 @@
 - [ ] T096 Run and validate quickstart.md scenarios
 - [ ] T097 Create database backup and restore scripts in backend/scripts/
 - [ ] T098 Update README with deployment instructions
+
+### Performance Verification (SC-001, SC-002)
+
+- [ ] PERF-001 Verify todo creation with all fields completes in under 2 minutes (SC-001)
+- [ ] PERF-002 Verify aggregate shopping list loads in under 1 second (SC-002)
+- [ ] PERF-003 Verify todo list sorting/filtering responds in under 500ms (SC-007)
 
 ---
 
@@ -597,10 +622,10 @@ With multiple developers:
 | Phase 8 | US4: Parent Blockers | T063-T069 (7 tasks) |
 | Phase 9 | US3: Photos | T070-T077 (8 tasks) |
 | Phase 10 | US8: Settings | T078-T082 (5 tasks) |
-| Phase 11 | Auth Enhancement | T083-T089 (7 tasks) |
-| Phase 12 | Polish | T090-T098 (9 tasks) |
+| Phase 11 | Auth + Optimistic Locking | T083-T089 (7 tasks) + TEST-AUTH + TEST-OPT |
+| Phase 12 | Polish + Performance | T090-T098 (9 tasks) + PERF (3 tasks) |
 
-**Total**: 98 tasks
+**Total**: 98 implementation tasks + 42 test tasks + 3 performance tasks = 143 total
 
 ### Tasks per User Story
 

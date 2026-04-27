@@ -3,7 +3,7 @@
 **Purpose**: Validate UX/user-facing requirements quality for all scenarios
 **Created**: 2026-04-27
 **Feature**: specs/001-family-chores-todo/spec.md
-**Audience**: Reviewer (PR)
+**Audience**: Author (self)
 **Scope**: All flows including alternate/exception + non-functional
 
 ---
@@ -105,6 +105,6 @@
 ## Notes
 
 - Focus: Primary/alternate/exception flows + NFR
-- Audience: Reviewer (PR)
+- Audience: Author (self)
 - Scope: All scenarios from spec
 - Existing checklists: data-model.md (entity level), requirements.md (spec quality)
