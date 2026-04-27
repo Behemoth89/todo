@@ -17,7 +17,7 @@
 
 - [ ] T001 Create backend project structure in backend/src/
 - [ ] T002 Create frontend project structure in frontend/src/
-- [ ] T003 [P] Initialize Node.js project with Express dependencies in backend/package.json
+- [ ] T003 [P] Initialize Python/FastAPI project with dependencies in backend/pyproject.toml
 - [ ] T004 [P] Initialize React project with Vite and dependencies in frontend/package.json
 - [ ] T005 [P] Configure TypeScript for frontend in frontend/tsconfig.json
 - [ ] T006 [P] Configure Python environment for backend with FastAPI dependencies

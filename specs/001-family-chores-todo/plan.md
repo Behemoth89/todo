@@ -11,25 +11,7 @@ Family Chores Todo App - A responsive SPA web application for managing household
 
 ## Technical Context
 
-**Language/Version**: TypeScript 5.x (frontend), Node.js 20.x (backend)  
-**Primary Dependencies**: React 18, Express.js, Prisma, SQLite (dev) / PostgreSQL (prod)  
-**Storage**: SQLite for local development, PostgreSQL for production  
-**Testing**: Vitest (frontend), Jest (backend)  
-**Target Platform**: Web browsers (responsive SPA, mobile-optimized)  
-**Project Type**: Web application (SPA + REST API)  
-**Performance Goals**: <500ms list response, <2min todo creation, 100% ready-status accuracy  
-**Constraints**: Pure responsive web, mobile browser only, optimistic locking for concurrent edits  
-**Scale/Scope**: Single family use (~10 users, typical 100s todos)
-
-## Technical Context
-
-<!--
-  ACTION REQUIRED: Replace the content in this section with the technical details
-  for the project. The structure here is presented in advisory capacity to guide
-  the iteration process.
--->
-
-**Language/Version**: TypeScript 5.x (frontend), Node.js 20.x (backend)  
+**Language/Version**: TypeScript 5.x (frontend), Python 3.11+ (backend)  
 **Primary Dependencies**: React 18, FastAPI, Prisma, SQLite (dev) / PostgreSQL (prod)  
 **Storage**: SQLite for local development, PostgreSQL for production  
 **Testing**: Vitest (frontend), Jest (backend)  

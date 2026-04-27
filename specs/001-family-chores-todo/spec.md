@@ -182,7 +182,7 @@ As a user, I want to configure lists like family members, locations, and priorit
 - **FR-003**: System MUST allow marking a location/object (e.g., living room, yard) on each todo.
 - **FR-004**: System MUST allow attaching multiple photos to each todo, with maximum file size 10MB per photo, converted to optimized WebP for storage.
 - **FR-005**: System MUST allow defining parent todo as a blocker - a todo cannot start until parent is complete.
-- **FR-006**: System MUST support multiple levels of parent-child dependencies (grandparent tasks).
+- **FR-006**: System MUST support multiple levels of parent-child dependencies (grandparent tasks via recursive parent_todo_id references).
 - **FR-007**: System MUST allow adding shopping list items to each todo with description, amount, price, and notes fields.
 - **FR-008**: System MUST allow marking shopping items as bought while retaining visibility on the todo.
 - **FR-009**: System MUST provide a separate aggregate shopping list view showing all items across all todos.
@@ -191,6 +191,7 @@ As a user, I want to configure lists like family members, locations, and priorit
 - **FR-012**: System MUST use date fields (created, deleted, effective dates) to determine what to show in lists.
 - **FR-013**: System MUST allow configuring family members, locations, and priorities in settings (no hardcoded enums).
 - **FR-014**: System MUST store completion date when a todo is marked complete.
+- **FR-015**: System MUST require authentication for all API endpoints (protected routes).
 - **FR-016**: System MUST support user authentication (login/logout) for each family member.
 - **FR-017**: System MUST allow users to view todos assigned to them specifically.
 - **FR-018**: System MUST handle concurrent edits with optimistic locking, notifying users when their changes overwrite others'.
@@ -212,7 +213,7 @@ As a user, I want to configure lists like family members, locations, and priorit
 
 - **SC-001**: Users can create a todo with all fields (priority, assignees, location, dates, notes) in under 2 minutes.
 - **SC-002**: Aggregate shopping list displays all items from all todos with correct bought status within 1 second.
-- **SC-003**: "Ready to execute" status accurately reflects shopping item completion and parent todo completion for 100% of todos.
+- **SC-003**: "Ready to execute" status accurately reflects shopping item completion and parent todo completion (measurement: query todos where ready status calculation can be verified against actual state).
 - **SC-004**: Date-based filtering correctly shows/hides soft-deleted items based on selected date ranges.
 - **SC-005**: Settings modifications (adding family members, locations, priorities) are immediately available in dropdowns.
 - **SC-006**: All configuration lists (family members, locations, priorities) can be modified without code changes.
@@ -222,7 +223,6 @@ As a user, I want to configure lists like family members, locations, and priorit
 
 - Each family member has their own login credentials.
 - Users can view todos assigned to them specifically after login.
-- Photos are stored locally or in cloud storage (actual storage mechanism to be determined during implementation).
 - Photos are stored locally or in cloud storage (actual storage mechanism to be determined during implementation).
 - Date handling follows standard calendar dates with timezone consideration.
 - The system will be a Single Page Application (SPA) with API backend - pure responsive web, optimized for mobile browsers.
