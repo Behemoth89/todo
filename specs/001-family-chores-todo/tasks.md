@@ -17,13 +17,13 @@
 
 ### Setup Verification Tests
 
-- [ ] TEST-SETUP-001 Write test that backend project structure exists (directory check)
-- [ ] TEST-SETUP-002 Write test that frontend project structure exists (directory check)
-- [ ] TEST-SETUP-003 Write test that FastAPI dependencies resolve in backend
-- [ ] TEST-SETUP-004 Write test that React dependencies resolve in frontend
-- [ ] TEST-SETUP-005 Write test that TypeScript configuration is valid
-- [ ] TEST-SETUP-006 Write test that Python environment is configured
-- [ ] TEST-SETUP-007 Write test that linting configuration is valid for both frontend and backend
+- [x] TEST-SETUP-001 Write test that backend project structure exists (directory check)
+- [x] TEST-SETUP-002 Write test that frontend project structure exists (directory check)
+- [x] TEST-SETUP-003 Write test that FastAPI dependencies resolve in backend
+- [x] TEST-SETUP-004 Write test that React dependencies resolve in frontend
+- [x] TEST-SETUP-005 Write test that TypeScript configuration is valid
+- [x] TEST-SETUP-006 Write test that Python environment is configured
+- [x] TEST-SETUP-007 Write test that linting configuration is valid for both frontend and backend
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -33,14 +33,14 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create backend project structure in backend/src/
-- [ ] T002 Create frontend project structure in frontend/src/
-- [ ] T003 [P] Initialize Python/FastAPI project with dependencies in backend/pyproject.toml
-- [ ] T004 [P] Initialize React project with Vite and dependencies in frontend/package.json
-- [ ] T005 [P] Configure TypeScript for frontend in frontend/tsconfig.json
-- [ ] T006 [P] Configure Python environment for backend with FastAPI dependencies
-- [ ] T007 [P] Configure linting (ESLint for frontend, Ruff for backend)
-- [ ] T008 [P] Configure environment variables in backend/.env and frontend/.env
+- [x] T001 Create backend project structure in backend/src/
+- [x] T002 Create frontend project structure in frontend/src/
+- [x] T003 [P] Initialize Python/FastAPI project with dependencies in backend/pyproject.toml
+- [x] T004 [P] Initialize React project with Vite and dependencies in frontend/package.json
+- [x] T005 [P] Configure TypeScript for frontend in frontend/tsconfig.json
+- [x] T006 [P] Configure Python environment for backend with FastAPI dependencies
+- [x] T007 [P] Configure linting (ESLint for frontend, Ruff for backend)
+- [x] T008 [P] Configure environment variables in backend/.env and frontend/.env
 
 ---
 
@@ -50,17 +50,17 @@
 
 ### Backend Tests for Foundation
 
-- [ ] TEST-FOUND-001 Write Jest test for Prisma schema compiles without errors
-- [ ] TEST-FOUND-002 Write Jest test for database migration runs successfully
-- [ ] TEST-FOUND-003 Write Jest test for FastAPI app initializes without errors
-- [ ] TEST-FOUND-004 Write Jest test for config loads from environment variables
-- [ ] TEST-FOUND-005 Write Jest test for error handler catches and returns proper responses
+- [x] TEST-FOUND-001 Write Jest test for Prisma schema compiles without errors
+- [x] TEST-FOUND-002 Write Jest test for database migration runs successfully
+- [x] TEST-FOUND-003 Write Jest test for FastAPI app initializes without errors
+- [x] TEST-FOUND-004 Write Jest test for config loads from environment variables
+- [x] TEST-FOUND-005 Write Jest test for error handler catches and returns proper responses
 
 ### Frontend Tests for Foundation
 
-- [ ] TEST-FOUND-006 Write Vitest test for React app renders without crashes
-- [ ] TEST-FOUND-007 Write Vitest test for API client service initializes
-- [ ] TEST-FOUND-008 Write Vitest test for auth context provides initial state
+- [x] TEST-FOUND-006 Write Vitest test for React app renders without crashes
+- [x] TEST-FOUND-007 Write Vitest test for API client service initializes
+- [x] TEST-FOUND-008 Write Vitest test for auth context provides initial state
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -72,16 +72,16 @@
 
 **CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T009 Setup Prisma schema in backend/prisma/schema.prisma with all entities
+- [x] T009 Setup Prisma schema in backend/prisma/schema.prisma with all entities
 - [ ] T010 Initialize SQLite database with Prisma migrations
-- [ ] T011 [P] Implement JWT authentication middleware in backend/src/middleware/auth.py
-- [ ] T012 [P] Setup FastAPI app structure in backend/src/main.py
-- [ ] T013 [P] Create API route structure in backend/src/api/
-- [ ] T014 Create error handling and logging infrastructure in backend/src/utils/errors.py
-- [ ] T015 Setup environment configuration management in backend/src/utils/config.py
-- [ ] T016 [P] Create React app structure and routing in frontend/src/App.tsx
-- [ ] T017 [P] Implement API client service in frontend/src/services/api.ts
-- [ ] T018 Create auth context and hooks in frontend/src/hooks/useAuth.tsx
+- [x] T011 [P] Implement JWT authentication middleware in backend/src/middleware/auth.py
+- [x] T012 [P] Setup FastAPI app structure in backend/src/main.py
+- [x] T013 [P] Create API route structure in backend/src/api/
+- [x] T014 Create error handling and logging infrastructure in backend/src/utils/errors.py
+- [x] T015 Setup environment configuration management in backend/src/utils/config.py
+- [x] T016 [P] Create React app structure and routing in frontend/src/App.tsx
+- [x] T017 [P] Implement API client service in frontend/src/services/api.ts
+- [x] T018 Create auth context and hooks in frontend/src/hooks/useAuth.tsx
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -95,20 +95,20 @@
 
 ### Backend Tests for US1
 
-- [ ] TEST-US1-001 Write Jest test for Todo CRUD: create todo with all fields fails without implementation
-- [ ] TEST-US1-002 Write Jest test for Todo GET endpoint returns empty list initially
-- [ ] TEST-US1-003 Write Jest test for Todo update persists changes
-- [ ] TEST-US1-004 Write Jest test for soft delete marks todo as deleted
-- [ ] TEST-US1-005 Write Jest test for date range filtering returns correct items
-- [ ] TEST-US1-006 Write Jest test for sorting by priority, due_date, title
-- [ ] TEST-US1-007 Write Jest test for Settings GET returns configurable lists
+- [x] TEST-US1-001 Write Jest test for Todo CRUD: create todo with all fields fails without implementation
+- [x] TEST-US1-002 Write Jest test for Todo GET endpoint returns empty list initially
+- [x] TEST-US1-003 Write Jest test for Todo update persists changes
+- [x] TEST-US1-004 Write Jest test for soft delete marks todo as deleted
+- [x] TEST-US1-005 Write Jest test for date range filtering returns correct items
+- [x] TEST-US1-006 Write Jest test for sorting by priority, due_date, title
+- [x] TEST-US1-007 Write Jest test for Settings GET returns configurable lists
 
 ### Frontend Tests for US1
 
-- [ ] TEST-US1-008 Write Vitest test for TodoList component renders empty state
-- [ ] TEST-US1-009 Write Vitest test for TodoForm validation (required fields)
-- [ ] TEST-US1-010 Write Vitest test for TodoCard displays all fields correctly
-- [ ] TEST-US1-011 Write Vitest test for sorting and filtering UI interactions
+- [x] TEST-US1-008 Write Vitest test for TodoList component renders empty state
+- [x] TEST-US1-009 Write Vitest test for TodoForm validation (required fields)
+- [x] TEST-US1-010 Write Vitest test for TodoCard displays all fields correctly
+- [x] TEST-US1-011 Write Vitest test for sorting and filtering UI interactions
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -122,20 +122,20 @@
 
 ### Implementation for User Story 1
 
-- [ ] T019 [P] [US1] Create User model and CRUD service in backend/src/models/user.py
-- [ ] T020 [P] [US1] Create Todo model and CRUD service in backend/src/models/todo.py (includes completion_date per FR-014)
-- [ ] T021 [P] [US1] Create Settings model for locations/priorities in backend/src/models/settings.py
-- [ ] T022 [US1] Implement GET /api/todos endpoint in backend/src/api/todos.py
-- [ ] T023 [US1] Implement POST /api/todos endpoint in backend/src/api/todos.py
-- [ ] T024 [US1] Implement GET /api/todos/:id endpoint in backend/src/api/todos.py
-- [ ] T025 [US1] Implement PUT /api/todos/:id endpoint with optimistic locking in backend/src/api/todos.py
-- [ ] T026 [US1] Implement DELETE /api/todos/:id endpoint for soft delete in backend/src/api/todos.py
-- [ ] T027 [US1] Implement GET /api/settings endpoint in backend/src/api/settings.py
-- [ ] T028 [US1] Implement TodoList React component in frontend/src/components/TodoList.tsx
-- [ ] T029 [US1] Implement TodoForm React component in frontend/src/components/TodoForm.tsx
-- [ ] T030 [US1] Implement TodoCard React component in frontend/src/components/TodoCard.tsx
-- [ ] T031 [US1] Add sorting and filtering support in backend/src/services/todo_service.py
-- [ ] T032 [US1] Add date range filtering logic in frontend/src/pages/TodoPage.tsx
+- [x] T019 [P] [US1] Create User model and CRUD service in backend/src/models/user.py
+- [x] T020 [P] [US1] Create Todo model and CRUD service in backend/src/models/todo.py (includes completion_date per FR-014)
+- [x] T021 [P] [US1] Create Settings model for locations/priorities in backend/src/models/settings.py
+- [x] T022 [US1] Implement GET /api/todos endpoint in backend/src/api/todos.py
+- [x] T023 [US1] Implement POST /api/todos endpoint in backend/src/api/todos.py
+- [x] T024 [US1] Implement GET /api/todos/:id endpoint in backend/src/api/todos.py
+- [x] T025 [US1] Implement PUT /api/todos/:id endpoint with optimistic locking in backend/src/api/todos.py
+- [x] T026 [US1] Implement DELETE /api/todos/:id endpoint for soft delete in backend/src/api/todos.py
+- [x] T027 [US1] Implement GET /api/settings endpoint in backend/src/api/settings.py
+- [x] T028 [US1] Implement TodoList React component in frontend/src/components/TodoList.tsx
+- [x] T029 [US1] Implement TodoForm React component in frontend/src/components/TodoForm.tsx
+- [x] T030 [US1] Implement TodoCard React component in frontend/src/components/TodoCard.tsx
+- [x] T031 [US1] Add sorting and filtering support in backend/src/services/todo_service.py
+- [x] T032 [US1] Add date range filtering logic in frontend/src/pages/TodoPage.tsx
 
 **Checkpoint**: User Story 1 fully functional and testable independently
 
@@ -147,19 +147,19 @@
 
 ### Backend Tests for US2
 
-- [ ] TEST-US2-001 Write Jest test for TodoAssignee junction table create operation
-- [ ] TEST-US2-002 Write Jest test for GET /api/todos with assignee filter returns correct todos
-- [ ] TEST-US2-003 Write Jest test for POST /api/users creates new family member
-- [ ] TEST-US2-004 Write Jest test for GET /api/users returns all active family members
-- [ ] TEST-US2-005 Write Jest test for Login endpoint returns JWT token
-- [ ] TEST-US2-006 Write Jest test for authentication middleware rejects invalid tokens
+- [x] TEST-US2-001 Write Jest test for TodoAssignee junction table create operation
+- [x] TEST-US2-002 Write Jest test for GET /api/todos with assignee filter returns correct todos
+- [x] TEST-US2-003 Write Jest test for POST /api/users creates new family member
+- [x] TEST-US2-004 Write Jest test for GET /api/users returns all active family members
+- [x] TEST-US2-005 Write Jest test for Login endpoint returns JWT token
+- [x] TEST-US2-006 Write Jest test for authentication middleware rejects invalid tokens
 
 ### Frontend Tests for US2
 
-- [ ] TEST-US2-007 Write Vitest test for AssigneeSelector multi-select component
-- [ ] TEST-US2-008 Write Vitest test for AssigneeSelector displays selected users correctly
-- [ ] TEST-US2-009 Write Vitest test for MyTodosPage filters by logged-in user
-- [ ] TEST-US2-010 Write Vitest test for LoginForm submits credentials and stores token
+- [x] TEST-US2-007 Write Vitest test for AssigneeSelector multi-select component
+- [x] TEST-US2-008 Write Vitest test for AssigneeSelector displays selected users correctly
+- [x] TEST-US2-009 Write Vitest test for MyTodosPage filters by logged-in user
+- [x] TEST-US2-010 Write Vitest test for LoginForm submits credentials and stores token
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -173,16 +173,16 @@
 
 ### Implementation for User Story 2
 
-- [ ] T033 [P] [US2] Create TodoAssignee junction model in backend/prisma/schema.prisma
-- [ ] T034 [US2] Implement assignee management in backend/src/services/todo_service.py
-- [ ] T035 [US2] Extend GET /api/todos with assignee filtering in backend/src/api/todos.py
-- [ ] T036 [US2] Implement POST /api/users endpoint in backend/src/api/users.py
-- [ ] T037 [US2] Implement GET /api/users endpoint in backend/src/api/users.py
-- [ ] T038 [US2] Implement AssigneeSelector React component in frontend/src/components/AssigneeSelector.tsx
-- [ ] T039 [US2] Add assignee display to TodoCard in frontend/src/components/TodoCard.tsx
-- [ ] T040 [US2] Add "My Assigned Todos" view in frontend/src/pages/MyTodosPage.tsx
-- [ ] T041 [US2] Implement POST /api/auth/login endpoint in backend/src/api/auth.py
-- [ ] T042 [US2] Implement user dropdown in todo form in frontend/src/components/TodoForm.tsx
+- [x] T033 [P] [US2] Create TodoAssignee junction model in backend/prisma/schema.prisma
+- [x] T034 [US2] Implement assignee management in backend/src/services/todo_service.py
+- [x] T035 [US2] Extend GET /api/todos with assignee filtering in backend/src/api/todos.py
+- [x] T036 [US2] Implement POST /api/users endpoint in backend/src/api/users.py
+- [x] T037 [US2] Implement GET /api/users endpoint in backend/src/api/users.py
+- [x] T038 [US2] Implement AssigneeSelector React component in frontend/src/components/AssigneeSelector.tsx
+- [x] T039 [US2] Add assignee display to TodoCard in frontend/src/components/TodoCard.tsx
+- [x] T040 [US2] Add "My Assigned Todos" view in frontend/src/pages/MyTodosPage.tsx
+- [x] T041 [US2] Implement POST /api/auth/login endpoint in backend/src/api/auth.py
+- [x] T042 [US2] Implement user dropdown in todo form in frontend/src/components/TodoForm.tsx
 
 **Checkpoint**: User Stories 1 AND 2 both work independently
 
@@ -194,17 +194,17 @@
 
 ### Backend Tests for US5
 
-- [ ] TEST-US5-001 Write Jest test for ShoppingItem create operation
-- [ ] TEST-US5-002 Write Jest test for GET /api/todos/:todoId/shopping-items returns items
-- [ ] TEST-US5-003 Write Jest test for PUT /api/shopping-items/:id updates item
-- [ ] TEST-US5-004 Write Jest test for soft delete on shopping item
-- [ ] TEST-US5-005 Write Jest test for marking item as bought retains visibility
+- [x] TEST-US5-001 Write Jest test for ShoppingItem create operation
+- [x] TEST-US5-002 Write Jest test for GET /api/todos/:todoId/shopping-items returns items
+- [x] TEST-US5-003 Write Jest test for PUT /api/shopping-items/:id updates item
+- [x] TEST-US5-004 Write Jest test for soft delete on shopping item
+- [x] TEST-US5-005 Write Jest test for marking item as bought retains visibility
 
 ### Frontend Tests for US5
 
-- [ ] TEST-US5-006 Write Vitest test for ShoppingItemList renders items correctly
-- [ ] TEST-US5-007 Write Vitest test for ShoppingItemForm validation
-- [ ] TEST-US5-008 Write Vitest test for bought checkbox toggle updates state
+- [x] TEST-US5-006 Write Vitest test for ShoppingItemList renders items correctly
+- [x] TEST-US5-007 Write Vitest test for ShoppingItemForm validation
+- [x] TEST-US5-008 Write Vitest test for bought checkbox toggle updates state
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -218,15 +218,15 @@
 
 ### Implementation for User Story 5
 
-- [ ] T043 [P] [US5] Create ShoppingItem model in backend/prisma/schema.prisma
-- [ ] T044 [P] [US5] Create ShoppingItem service in backend/src/services/shopping_service.py
-- [ ] T045 [US5] Implement GET /api/todos/:todoId/shopping-items in backend/src/api/shopping_items.py
-- [ ] T046 [US5] Implement POST /api/todos/:todoId/shopping-items in backend/src/api/shopping_items.py
-- [ ] T047 [US5] Implement PUT /api/shopping-items/:id in backend/src/api/shopping_items.py
-- [ ] T048 [US5] Implement DELETE /api/shopping-items/:id for soft delete in backend/src/api/shopping_items.py
-- [ ] T049 [US5] Implement ShoppingItemList React component in frontend/src/components/ShoppingItemList.tsx
-- [ ] T050 [US5] Implement ShoppingItemForm React component in frontend/src/components/ShoppingItemForm.tsx
-- [ ] T051 [US5] Add shopping items section to TodoDetail view in frontend/src/pages/TodoDetailPage.tsx
+- [x] T043 [P] [US5] Create ShoppingItem model in backend/prisma/schema.prisma
+- [x] T044 [P] [US5] Create ShoppingItem service in backend/src/services/shopping_service.py
+- [x] T045 [US5] Implement GET /api/todos/:todoId/shopping-items in backend/src/api/shopping_items.py
+- [x] T046 [US5] Implement POST /api/todos/:todoId/shopping-items in backend/src/api/shopping_items.py
+- [x] T047 [US5] Implement PUT /api/shopping-items/:id in backend/src/api/shopping_items.py
+- [x] T048 [US5] Implement DELETE /api/shopping-items/:id for soft delete in backend/src/api/shopping_items.py
+- [x] T049 [US5] Implement ShoppingItemList React component in frontend/src/components/ShoppingItemList.tsx
+- [x] T050 [US5] Implement ShoppingItemForm React component in frontend/src/components/ShoppingItemForm.tsx
+- [x] T051 [US5] Add shopping items section to TodoDetail view in frontend/src/pages/TodoDetailPage.tsx
 
 **Checkpoint**: Shopping items on todos fully functional
 
@@ -238,17 +238,17 @@
 
 ### Backend Tests for US6
 
-- [ ] TEST-US6-001 Write Jest test for GET /api/shopping-list aggregates all items
-- [ ] TEST-US6-002 Write Jest test for filtering by bought status
-- [ ] TEST-US6-003 Write Jest test for filtering by todo
-- [ ] TEST-US6-004 Write Jest test for filtering by location
-- [ ] TEST-US6-005 Write Jest test for pagination returns correct page
+- [x] TEST-US6-001 Write Jest test for GET /api/shopping-list aggregates all items
+- [x] TEST-US6-002 Write Jest test for filtering by bought status
+- [x] TEST-US6-003 Write Jest test for filtering by todo
+- [x] TEST-US6-004 Write Jest test for filtering by location
+- [x] TEST-US6-005 Write Jest test for pagination returns correct page
 
 ### Frontend Tests for US6
 
-- [ ] TEST-US6-006 Write Vitest test for AggregateShoppingList renders all items
-- [ ] TEST-US6-007 Write Vitest test for ShoppingListFilters apply correctly
-- [ ] TEST-US6-008 Write Vitest test for Mark as Bought quick action
+- [x] TEST-US6-006 Write Vitest test for AggregateShoppingList renders all items
+- [x] TEST-US6-007 Write Vitest test for ShoppingListFilters apply correctly
+- [x] TEST-US6-008 Write Vitest test for Mark as Bought quick action
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -262,12 +262,12 @@
 
 ### Implementation for User Story 6
 
-- [ ] T052 [US6] Implement GET /api/shopping-list endpoint in backend/src/api/shopping_list.py
-- [ ] T053 [US6] Add filtering to shopping list (bought, todo, location) in backend/src/services/shopping_service.py
-- [ ] T054 [US6] Add pagination to aggregate shopping list in backend/src/api/shopping_list.py
-- [ ] T055 [US6] Implement AggregateShoppingList React page in frontend/src/pages/ShoppingListPage.tsx
-- [ ] T056 [US6] Add shopping list filters in frontend/src/components/ShoppingListFilters.tsx
-- [ ] T057 [US6] Add "Mark as Bought" quick action in frontend/src/components/ShoppingItemRow.tsx
+- [x] T052 [US6] Implement GET /api/shopping-list endpoint in backend/src/api/shopping_list.py
+- [x] T053 [US6] Add filtering to shopping list (bought, todo, location) in backend/src/services/shopping_service.py
+- [x] T054 [US6] Add pagination to aggregate shopping list in backend/src/api/shopping_list.py
+- [x] T055 [US6] Implement AggregateShoppingList React page in frontend/src/pages/ShoppingListPage.tsx
+- [x] T056 [US6] Add shopping list filters in frontend/src/components/ShoppingListFilters.tsx
+- [x] T057 [US6] Add "Mark as Bought" quick action in frontend/src/components/ShoppingItemRow.tsx
 
 **Checkpoint**: Aggregate shopping list fully functional
 
@@ -279,16 +279,16 @@
 
 ### Backend Tests for US7
 
-- [ ] TEST-US7-001 Write Jest test for is_ready_to_execute returns false when shopping items not bought
-- [ ] TEST-US7-002 Write Jest test for is_ready_to_execute returns false when parent todo incomplete
-- [ ] TEST-US7-003 Write Jest test for is_ready_to_execute returns true when all items bought AND parents complete
-- [ ] TEST-US7-004 Write Jest test for is_ready_to_execute returns true for todo with no items and no parents
-- [ ] TEST-US7-005 Write Jest test for ready status included in todo list response
+- [x] TEST-US7-001 Write Jest test for is_ready_to_execute returns false when shopping items not bought
+- [x] TEST-US7-002 Write Jest test for is_ready_to_execute returns false when parent todo incomplete
+- [x] TEST-US7-003 Write Jest test for is_ready_to_execute returns true when all items bought AND parents complete
+- [x] TEST-US7-004 Write Jest test for is_ready_to_execute returns true for todo with no items and no parents
+- [x] TEST-US7-005 Write Jest test for ready status included in todo list response
 
 ### Frontend Tests for US7
 
-- [ ] TEST-US7-006 Write Vitest test for ready status indicator shows correct state
-- [ ] TEST-US7-007 Write Vitest test for ready filter returns only ready todos
+- [x] TEST-US7-006 Write Vitest test for ready status indicator shows correct state
+- [x] TEST-US7-007 Write Vitest test for ready filter returns only ready todos
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -302,11 +302,11 @@
 
 ### Implementation for User Story 7
 
-- [ ] T058 [US7] Implement is_ready_to_execute calculation in backend/src/services/todo_service.py
-- [ ] T059 [US7] Add ready status to all todo list responses in backend/src/api/todos.py
-- [ ] T060 [US7] Implement ready status indicator in frontend/src/components/TodoCard.tsx
-- [ ] T061 [US7] Add ready filter to todo list in frontend/src/components/TodoFilters.tsx
-- [ ] T062 [US7] Add "Ready to Execute" quick filter button in frontend/src/pages/TodoPage.tsx
+- [x] T058 [US7] Implement is_ready_to_execute calculation in backend/src/services/todo_service.py
+- [x] T059 [US7] Add ready status to all todo list responses in backend/src/api/todos.py
+- [x] T060 [US7] Implement ready status indicator in frontend/src/components/TodoCard.tsx
+- [x] T061 [US7] Add ready filter to todo list in frontend/src/components/TodoFilters.tsx
+- [x] T062 [US7] Add "Ready to Execute" quick filter button in frontend/src/pages/TodoPage.tsx
 
 **Checkpoint**: Ready to execute status fully functional for all todos
 
@@ -318,15 +318,15 @@
 
 ### Backend Tests for US4
 
-- [ ] TEST-US4-001 Write Jest test for parent_todo_id field saves correctly
-- [ ] TEST-US4-002 Write Jest test for child todo shows parent as blocker
-- [ ] TEST-US4-003 Write Jest test for cycle detection prevents circular dependencies
-- [ ] TEST-US4-004 Write Jest test for deep parent chain traversal (grandparent)
+- [x] TEST-US4-001 Write Jest test for parent_todo_id field saves correctly
+- [x] TEST-US4-002 Write Jest test for child todo shows parent as blocker
+- [x] TEST-US4-003 Write Jest test for cycle detection prevents circular dependencies
+- [x] TEST-US4-004 Write Jest test for deep parent chain traversal (grandparent)
 
 ### Frontend Tests for US4
 
-- [ ] TEST-US4-005 Write Vitest test for parent selector shows all available todos
-- [ ] TEST-US4-006 Write Vitest test for parent blocker displays correctly in TodoCard
+- [x] TEST-US4-005 Write Vitest test for parent selector shows all available todos
+- [x] TEST-US4-006 Write Vitest test for parent blocker displays correctly in TodoCard
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -340,13 +340,13 @@
 
 ### Implementation for User Story 4
 
-- [ ] T063 [P] [US4] Add parent_todo_id field to Todo model in backend/prisma/schema.prisma
-- [ ] T064 [P] [US4] Update Todo service with parent relationship handling in backend/src/services/todo_service.py
-- [ ] T065 [US4] Add cycle detection for parent-child in backend/src/services/todo_service.py
-- [ ] T066 [US4] Update todo CRUD to handle parent_todo_id in backend/src/api/todos.py
-- [ ] T067 [US4] Add parent selector in TodoForm in frontend/src/components/TodoForm.tsx
-- [ ] T068 [US4] Display parent blocker in TodoCard in frontend/src/components/TodoCard.tsx
-- [ ] T069 [US4] Display child todos in TodoDetail view in frontend/src/pages/TodoDetailPage.tsx
+- [x] T063 [P] [US4] Add parent_todo_id field to Todo model in backend/prisma/schema.prisma
+- [x] T064 [P] [US4] Update Todo service with parent relationship handling in backend/src/services/todo_service.py
+- [x] T065 [US4] Add cycle detection for parent-child in backend/src/services/todo_service.py
+- [x] T066 [US4] Update todo CRUD to handle parent_todo_id in backend/src/api/todos.py
+- [x] T067 [US4] Add parent selector in TodoForm in frontend/src/components/TodoForm.tsx
+- [x] T068 [US4] Display parent blocker in TodoCard in frontend/src/components/TodoCard.tsx
+- [x] T069 [US4] Display child todos in TodoDetail view in frontend/src/pages/TodoDetailPage.tsx
 
 **Checkpoint**: Parent-child dependencies fully functional
 
@@ -358,15 +358,15 @@
 
 ### Backend Tests for US3
 
-- [ ] TEST-US3-001 Write Jest test for Photo model creation with todo reference
-- [ ] TEST-US3-002 Write Jest test for photo upload rejects files over 10MB
-- [ ] TEST-US3-003 Write Jest test for WebP conversion produces valid image
-- [ ] TEST-US3-004 Write Jest test for soft delete on photo
+- [x] TEST-US3-001 Write Jest test for Photo model creation with todo reference
+- [x] TEST-US3-002 Write Jest test for photo upload rejects files over 10MB
+- [x] TEST-US3-003 Write Jest test for WebP conversion produces valid image
+- [x] TEST-US3-004 Write Jest test for soft delete on photo
 
 ### Frontend Tests for US3
 
-- [ ] TEST-US3-005 Write Vitest test for PhotoUpload accepts valid image files
-- [ ] TEST-US3-006 Write Vitest test for PhotoGallery displays multiple photos
+- [x] TEST-US3-005 Write Vitest test for PhotoUpload accepts valid image files
+- [x] TEST-US3-006 Write Vitest test for PhotoGallery displays multiple photos
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -380,14 +380,14 @@
 
 ### Implementation for User Story 3
 
-- [ ] T070 [P] [US3] Create Photo model in backend/prisma/schema.prisma
-- [ ] T071 [P] [US3] Create photo service with Pillow WebP conversion in backend/src/services/photo_service.py
-- [ ] T072 [US3] Implement POST /api/todos/:todoId/photos upload endpoint in backend/src/api/photos.py
-- [ ] T073 [US3] Implement DELETE /api/photos/:id endpoint for soft delete in backend/src/api/photos.py
-- [ ] T074 [US3] Add file size validation (10MB) and format validation in backend/src/utils/validators.py
-- [ ] T075 [US3] Implement PhotoUpload React component in frontend/src/components/PhotoUpload.tsx
-- [ ] T076 [US3] Implement PhotoGallery React component in frontend/src/components/PhotoGallery.tsx
-- [ ] T077 [US3] Add photo section to TodoDetail view in frontend/src/pages/TodoDetailPage.tsx
+- [x] T070 [P] [US3] Create Photo model in backend/prisma/schema.prisma
+- [x] T071 [P] [US3] Create photo service with Pillow WebP conversion in backend/src/services/photo_service.py
+- [x] T072 [US3] Implement POST /api/todos/:todoId/photos upload endpoint in backend/src/api/photos.py
+- [x] T073 [US3] Implement DELETE /api/photos/:id endpoint for soft delete in backend/src/api/photos.py
+- [x] T074 [US3] Add file size validation (10MB) and format validation in backend/src/utils/validators.py
+- [x] T075 [US3] Implement PhotoUpload React component in frontend/src/components/PhotoUpload.tsx
+- [x] T076 [US3] Implement PhotoGallery React component in frontend/src/components/PhotoGallery.tsx
+- [x] T077 [US3] Add photo section to TodoDetail view in frontend/src/pages/TodoDetailPage.tsx
 
 **Checkpoint**: Photo attachments fully functional
 
@@ -399,17 +399,17 @@
 
 ### Backend Tests for US8
 
-- [ ] TEST-US8-001 Write Jest test for POST /api/settings creates new entry
-- [ ] TEST-US8-002 Write Jest test for PUT /api/settings/:id updates entry
-- [ ] TEST-US8-003 Write Jest test for DELETE /api/settings/:id soft deletes
-- [ ] TEST-US8-004 Write Jest test for duplicate name prevention
-- [ ] TEST-US8-005 Write Jest test for category filtering returns correct items
+- [x] TEST-US8-001 Write Jest test for POST /api/settings creates new entry
+- [x] TEST-US8-002 Write Jest test for PUT /api/settings/:id updates entry
+- [x] TEST-US8-003 Write Jest test for DELETE /api/settings/:id soft deletes
+- [x] TEST-US8-004 Write Jest test for duplicate name prevention
+- [x] TEST-US8-005 Write Jest test for category filtering returns correct items
 
 ### Frontend Tests for US8
 
-- [ ] TEST-US8-006 Write Vitest test for SettingsPage renders all categories
-- [ ] TEST-US8-007 Write Vitest test for SettingsForm creates new entry
-- [ ] TEST-US8-008 Write Vitest test for dynamic dropdown uses settings data
+- [x] TEST-US8-006 Write Vitest test for SettingsPage renders all categories
+- [x] TEST-US8-007 Write Vitest test for SettingsForm creates new entry
+- [x] TEST-US8-008 Write Vitest test for dynamic dropdown uses settings data
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -423,11 +423,11 @@
 
 ### Implementation for User Story 8
 
-- [ ] T078 [P] [US8] Create Settings endpoints (POST, PUT, DELETE) in backend/src/api/settings.py
-- [ ] T079 [US8] Implement settings validation (no duplicates, soft delete) in backend/src/services/settings_service.py
-- [ ] T080 [US8] Implement SettingsPage React component in frontend/src/pages/SettingsPage.tsx
-- [ ] T081 [US8] Add dynamic dropdown components using settings data in frontend/src/components/SettingsDropdown.tsx
-- [ ] T082 [US8] Implement SettingsForm for locations and priorities in frontend/src/components/SettingsForm.tsx
+- [x] T078 [P] [US8] Create Settings endpoints (POST, PUT, DELETE) in backend/src/api/settings.py
+- [x] T079 [US8] Implement settings validation (no duplicates, soft delete) in backend/src/services/settings_service.py
+- [x] T080 [US8] Implement SettingsPage React component in frontend/src/pages/SettingsPage.tsx
+- [x] T081 [US8] Add dynamic dropdown components using settings data in frontend/src/components/SettingsDropdown.tsx
+- [x] T082 [US8] Implement SettingsForm for locations and priorities in frontend/src/components/SettingsForm.tsx
 
 **Checkpoint**: Configurable lists fully functional
 
@@ -439,15 +439,15 @@
 
 ### Backend Tests for Auth
 
-- [ ] TEST-AUTH-001 Write Jest test for JWT token generation with expiration
-- [ ] TEST-AUTH-002 Write Jest test for auth middleware rejects invalid/missing token
-- [ ] TEST-AUTH-003 Write Jest test for logout endpoint clears session
+- [x] TEST-AUTH-001 Write Jest test for JWT token generation with expiration
+- [x] TEST-AUTH-002 Write Jest test for auth middleware rejects invalid/missing token
+- [x] TEST-AUTH-003 Write Jest test for logout endpoint clears session
 
 ### Frontend Tests for Auth
 
-- [ ] TEST-AUTH-004 Write Vitest test for LoginForm validation and submission
-- [ ] TEST-AUTH-005 Write Vitest test for ProtectedRoute redirects unauthenticated users
-- [ ] TEST-AUTH-006 Write Vitest test for auth context provides user state
+- [x] TEST-AUTH-004 Write Vitest test for LoginForm validation and submission
+- [x] TEST-AUTH-005 Write Vitest test for ProtectedRoute redirects unauthenticated users
+- [x] TEST-AUTH-006 Write Vitest test for auth context provides user state
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -461,13 +461,13 @@
 
 ### Implementation for User Authentication
 
-- [ ] T083 [P] [US2] Implement JWT token generation with expiration in backend/src/utils/auth.py
-- [ ] T084 [P] [US2] Create auth middleware for protected routes in backend/src/middleware/auth.py
-- [ ] T085 [US2] Implement POST /api/auth/logout endpoint in backend/src/api/auth.py
-- [ ] T086 [US2] Implement auth guard for protected routes in frontend/src/hooks/useAuth.tsx
-- [ ] T087 [US2] Add login form in frontend/src/components/LoginForm.tsx
-- [ ] T088 [US2] Implement protected route wrapper in frontend/src/components/ProtectedRoute.tsx
-- [ ] T089 [US2] Add user menu with logout in frontend/src/components/UserMenu.tsx
+- [x] T083 [P] [US2] Implement JWT token generation with expiration in backend/src/utils/auth.py
+- [x] T084 [P] [US2] Create auth middleware for protected routes in backend/src/middleware/auth.py
+- [x] T085 [US2] Implement POST /api/auth/logout endpoint in backend/src/api/auth.py
+- [x] T086 [US2] Implement auth guard for protected routes in frontend/src/hooks/useAuth.tsx
+- [x] T087 [US2] Add login form in frontend/src/components/LoginForm.tsx
+- [x] T088 [US2] Implement protected route wrapper in frontend/src/components/ProtectedRoute.tsx
+- [x] T089 [US2] Add user menu with logout in frontend/src/components/UserMenu.tsx
 
 **Checkpoint**: Full authentication working
 
@@ -479,14 +479,14 @@
 
 ### Backend Tests for Optimistic Locking (FR-018)
 
-- [ ] TEST-OPT-001 Write Jest test for concurrent update detection (version conflict)
-- [ ] TEST-OPT-002 Write Jest test for conflict notification response format
-- [ ] TEST-OPT-003 Write Jest test for version field increments on update
+- [x] TEST-OPT-001 Write Jest test for concurrent update detection (version conflict)
+- [x] TEST-OPT-002 Write Jest test for conflict notification response format
+- [x] TEST-OPT-003 Write Jest test for version field increments on update
 
 ### Frontend Tests for Optimistic Locking
 
-- [ ] TEST-OPT-004 Write Vitest test for conflict notification displays to user
-- [ ] TEST-OPT-005 Write Vitest test for retry mechanism on version conflict
+- [x] TEST-OPT-004 Write Vitest test for conflict notification displays to user
+- [x] TEST-OPT-005 Write Vitest test for retry mechanism on version conflict
 
 **Checkpoint**: Tests written and failing → Ready for Red-Green cycle
 
@@ -500,33 +500,33 @@
 
 ### Observability Implementation
 
-- [ ] OBS-001 [P] Setup structured logging in backend with request ID tracing in backend/src/utils/logger.py
-- [ ] OBS-002 [P] Add error tracking with full context (stack traces, user session) in backend/src/utils/errors.py
-- [ ] OBS-003 [P] Implement performance metrics for sync/load/save operations in backend/src/utils/metrics.py
-- [ ] OBS-004 [P] Add request timing middleware in backend/src/middleware/timing.py
-- [ ] OBS-005 [P] Implement frontend analytics tracking in frontend/src/utils/analytics.ts
-- [ ] OBS-006 [P] Add error boundary component for React in frontend/src/components/ErrorBoundary.tsx
-- [ ] OBS-007 Add logging for all user actions in frontend/src/utils/userActionLogger.ts
+- [x] OBS-001 [P] Setup structured logging in backend with request ID tracing in backend/src/utils/logger.py
+- [x] OBS-002 [P] Add error tracking with full context (stack traces, user session) in backend/src/utils/errors.py
+- [x] OBS-003 [P] Implement performance metrics for sync/load/save operations in backend/src/utils/metrics.py
+- [x] OBS-004 [P] Add request timing middleware in backend/src/middleware/timing.py
+- [x] OBS-005 [P] Implement frontend analytics tracking in frontend/src/utils/analytics.ts
+- [x] OBS-006 [P] Add error boundary component for React in frontend/src/components/ErrorBoundary.tsx
+- [x] OBS-007 Add logging for all user actions in frontend/src/utils/userActionLogger.ts
 
 ### Polish Tasks
 
-- [ ] T090 [P] Create seed data script with sample users and locations in backend/prisma/seed.py
-- [ ] T091 [P] Add optimistic locking conflict handling in frontend/src/services/api.ts
-- [ ] T092 [P] Add loading states and error handling in React components
-- [ ] T093 [P] Mobile responsive styling for all pages in frontend/src/styles/
-- [ ] T094 Add pagination to todo list (20 per page default) in backend/src/api/todos.py
-- [ ] T095 Performance optimization: add database indexes for frequently queried fields in backend/prisma/schema.prisma
+- [x] T090 [P] Create seed data script with sample users and locations in backend/prisma/seed.py
+- [x] T091 [P] Add optimistic locking conflict handling in frontend/src/services/api.ts
+- [x] T092 [P] Add loading states and error handling in React components
+- [x] T093 [P] Mobile responsive styling for all pages in frontend/src/styles/
+- [x] T094 Add pagination to todo list (20 per page default) in backend/src/api/todos.py
+- [x] T095 Performance optimization: add database indexes for frequently queried fields in backend/prisma/schema.prisma
 - [ ] T096 Run and validate quickstart.md scenarios
-- [ ] T097 Create database backup and restore scripts in backend/scripts/
-- [ ] T098 Update README with deployment instructions
+- [x] T097 Create database backup and restore scripts in backend/scripts/
+- [x] T098 Update README with deployment instructions
 
 ### Performance Verification (SC-001, SC-002, SC-004, SC-005, SC-007)
 
-- [ ] PERF-001 Verify todo creation with all fields completes in under 2 minutes (SC-001)
-- [ ] PERF-002 Verify aggregate shopping list loads in under 1 second (SC-002)
-- [ ] PERF-003 Verify todo list sorting/filtering responds in under 500ms (SC-007)
-- [ ] PERF-004 Verify date-based filtering shows/hides soft-deleted items correctly (SC-004)
-- [ ] PERF-005 Verify settings modifications appear in dropdowns immediately (<100ms UI update) (SC-005)
+- [x] PERF-001 Verify todo creation with all fields completes in under 2 minutes (SC-001)
+- [x] PERF-002 Verify aggregate shopping list loads in under 1 second (SC-002)
+- [x] PERF-003 Verify todo list sorting/filtering responds in under 500ms (SC-007)
+- [x] PERF-004 Verify date-based filtering shows/hides soft-deleted items correctly (SC-004)
+- [x] PERF-005 Verify settings modifications appear in dropdowns immediately (<100ms UI update) (SC-005)
 
 ---
 
