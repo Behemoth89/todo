@@ -117,7 +117,7 @@ export const shoppingListApi = {
 }
 
 export const photosApi = {
-  upload: async (todoId: string, file: File, version: number) => {
+  upload: async (todoId: string, file: File, _version: number) => {
     const formData = new FormData()
     formData.append('file', file)
     const { data } = await api.post(`/todos/${todoId}/photos`, formData, {

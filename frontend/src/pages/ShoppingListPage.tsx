@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
-import { shoppingListApi, settingsApi, usersApi } from '../services/api'
-import type { ShoppingItem, Settings, User } from '../types'
+import { shoppingListApi, settingsApi } from '../services/api'
+import type { ShoppingItem, Settings } from '../types'
 import ShoppingListFilters from '../components/ShoppingListFilters'
 import './ShoppingListPage.css'
 
 export default function ShoppingListPage() {
   const [items, setItems] = useState<ShoppingItem[]>([])
   const [settings, setSettings] = useState<Settings | null>(null)
-  const [users, setUsers] = useState<User[]>([])
   const [loading, setLoading] = useState(true)
   const [filters, setFilters] = useState({})
 
@@ -18,14 +17,12 @@ export default function ShoppingListPage() {
   const loadData = async () => {
     setLoading(true)
     try {
-      const [listData, settingsData, usersData] = await Promise.all([
+      const [listData, settingsData] = await Promise.all([
         shoppingListApi.list(filters),
         settingsApi.get(),
-        usersApi.list(),
       ])
       setItems(listData.items || [])
       setSettings(settingsData)
-      setUsers(usersData)
     } catch (err) {
       console.error('Failed to load shopping list:', err)
     } finally {

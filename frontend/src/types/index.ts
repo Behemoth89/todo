@@ -9,9 +9,13 @@ export interface Todo {
   title: string
   description?: string
   priority?: { id: string; name: string }
+  priority_id?: string
   location?: { id: string; name: string }
+  location_id?: string
   assignees: { id: string; name: string }[]
+  assignee_ids?: string[]
   parent_todo?: { id: string; title: string }
+  parent_todo_id?: string
   start_date?: string
   due_date?: string
   completion_date?: string

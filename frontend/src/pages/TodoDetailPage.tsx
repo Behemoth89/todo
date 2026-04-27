@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { todosApi, shoppingItemsApi, photosApi, usersApi, settingsApi } from '../services/api'
-import type { Todo, ShoppingItem, Photo, User, Settings, ConflictError } from '../types'
+import { todosApi, shoppingItemsApi, photosApi } from '../services/api'
+import type { Todo, ShoppingItem, Photo } from '../types'
 import ShoppingItemList from '../components/ShoppingItemList'
 import PhotoGallery from '../components/PhotoGallery'
 import './TodoDetailPage.css'
@@ -11,8 +11,6 @@ export default function TodoDetailPage() {
   const [todo, setTodo] = useState<Todo | null>(null)
   const [shoppingItems, setShoppingItems] = useState<ShoppingItem[]>([])
   const [photos, setPhotos] = useState<Photo[]>([])
-  const [users, setUsers] = useState<User[]>([])
-  const [settings, setSettings] = useState<Settings | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [showShoppingForm, setShowShoppingForm] = useState(false)
@@ -26,16 +24,14 @@ export default function TodoDetailPage() {
     if (!id) return
     setLoading(true)
     try {
-      const [todoData, itemsData, usersData, settingsData] = await Promise.all([
+      const [todoData, itemsData, _photosData] = await Promise.all([
         todosApi.get(id),
         shoppingItemsApi.list(id),
-        usersApi.list(),
-        settingsApi.get(),
+        Promise.resolve([]),
       ])
       setTodo(todoData)
       setShoppingItems(itemsData)
-      setUsers(usersData)
-      setSettings(settingsData)
+      setPhotos(_photosData)
     } catch (err) {
       setError('Failed to load todo')
     } finally {

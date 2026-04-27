@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
 import type { ConflictError as ConflictErrorType } from '../types'
-import { todosApi } from '../services/api'
 import type { Todo } from '../types'
 
 interface ConflictState {
@@ -21,13 +20,13 @@ export function OptimisticLockProvider({ children }: { children: ReactNode }) {
   const [conflict, setConflict] = useState<ConflictState | null>(null)
 
   const handleConflict = useCallback((
-    error: ConflictErrorType,
+    _error: ConflictErrorType,
     todo: Todo,
-    retryFn: () => Promise<void>
+    _retryFn: () => Promise<void>
   ) => {
     setConflict({
       hasConflict: true,
-      currentVersion: error.current_version,
+      currentVersion: _error.current_version,
       todo,
     })
   }, [])

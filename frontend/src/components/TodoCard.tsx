@@ -7,7 +7,7 @@ interface Props {
   onRefresh: () => void
 }
 
-export default function TodoCard({ todo, onRefresh }: Props) {
+export default function TodoCard({ todo, onRefresh: _onRefresh }: Props) {
   const isOverdue = todo.due_date && new Date(todo.due_date) < new Date() && !todo.completion_date
 
   return (

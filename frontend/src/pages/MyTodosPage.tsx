@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react'
 import { todosApi } from '../services/api'
 import { useAuth } from '../hooks/useAuth'
 import { Link } from 'react-router-dom'
+import type { Todo } from '../types'
 import TodoCard from '../components/TodoCard'
 import './MyTodosPage.css'
 
 export default function MyTodosPage() {
   const { user } = useAuth()
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState<Todo[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -15,9 +16,10 @@ export default function MyTodosPage() {
   }, [])
 
   const loadTodos = async () => {
+    if (!user?.id) return
     setLoading(true)
     try {
-      const data = await todosApi.list({ filter_assignee: user?.id, filter_status: 'active' })
+      const data = await todosApi.list({ filter_assignee: user.id, filter_status: 'active' })
       setTodos(data.todos || [])
     } catch (err) {
       console.error('Failed to load todos:', err)

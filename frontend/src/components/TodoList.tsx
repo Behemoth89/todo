@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import type { Todo } from '../types'
 import TodoCard from './TodoCard'
 

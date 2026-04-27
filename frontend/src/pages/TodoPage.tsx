@@ -58,7 +58,7 @@ export default function TodoPage() {
         <UserMenu />
       </header>
       
-      <TodoFilters filters={filters} onFilterChange={setFilters} />
+      <TodoFilters filters={filters} onFilterChange={setFilters as (filters: Record<string, unknown>) => void} />
       
       <main className="content">
         {loading ? (

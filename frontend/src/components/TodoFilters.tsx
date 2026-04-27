@@ -1,8 +1,8 @@
 import './TodoFilters.css'
 
 interface Props {
-  filters: Record<string, string | number | boolean>
-  onFilterChange: (filters: Record<string, string | number | boolean>) => void
+  filters: Record<string, unknown>
+  onFilterChange: (filters: Record<string, unknown>) => void
 }
 
 export default function TodoFilters({ filters, onFilterChange }: Props) {

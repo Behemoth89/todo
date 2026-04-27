@@ -7,7 +7,7 @@ import MyTodosPage from './pages/MyTodosPage'
 import TodoDetailPage from './pages/TodoDetailPage'
 import ShoppingListPage from './pages/ShoppingListPage'
 import SettingsPage from './pages/SettingsPage'
-import ErrorBoundary from './components/ErrorBoundary'
+import { ErrorBoundary } from './components/ErrorBoundary'
 
 function App() {
   return (
