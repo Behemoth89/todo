@@ -11,7 +11,25 @@
 
 ---
 
-## Phase 1: Setup (Shared Infrastructure)
+## Phase 1a: TDD Tests - Project Setup (Priority: P1)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Setup Verification Tests
+
+- [ ] TEST-SETUP-001 Write test that backend project structure exists (directory check)
+- [ ] TEST-SETUP-002 Write test that frontend project structure exists (directory check)
+- [ ] TEST-SETUP-003 Write test that FastAPI dependencies resolve in backend
+- [ ] TEST-SETUP-004 Write test that React dependencies resolve in frontend
+- [ ] TEST-SETUP-005 Write test that TypeScript configuration is valid
+- [ ] TEST-SETUP-006 Write test that Python environment is configured
+- [ ] TEST-SETUP-007 Write test that linting configuration is valid for both frontend and backend
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 1b: Implementation - Setup (Shared Infrastructure)
 
 **Purpose**: Project initialization and basic structure
 
@@ -26,7 +44,29 @@
 
 ---
 
-## Phase 2: Foundational (Blocking Prerequisites)
+## Phase 2a: TDD Tests - Foundational Infrastructure (Priority: P1)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Backend Tests for Foundation
+
+- [ ] TEST-FOUND-001 Write Jest test for Prisma schema compiles without errors
+- [ ] TEST-FOUND-002 Write Jest test for database migration runs successfully
+- [ ] TEST-FOUND-003 Write Jest test for FastAPI app initializes without errors
+- [ ] TEST-FOUND-004 Write Jest test for config loads from environment variables
+- [ ] TEST-FOUND-005 Write Jest test for error handler catches and returns proper responses
+
+### Frontend Tests for Foundation
+
+- [ ] TEST-FOUND-006 Write Vitest test for React app renders without crashes
+- [ ] TEST-FOUND-007 Write Vitest test for API client service initializes
+- [ ] TEST-FOUND-008 Write Vitest test for auth context provides initial state
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 2b: Implementation - Foundational (Blocking Prerequisites)
 
 **Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
 
@@ -47,7 +87,34 @@
 
 ---
 
-## Phase 3: User Story 1 - Create and Manage Family Chore Todos (Priority: P1)
+## Phase 3a: TDD Tests - User Story 1 (Priority: P1)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+**Red Phase**: Tests written first, MUST fail before implementation begins
+
+### Backend Tests for US1
+
+- [ ] TEST-US1-001 Write Jest test for Todo CRUD: create todo with all fields fails without implementation
+- [ ] TEST-US1-002 Write Jest test for Todo GET endpoint returns empty list initially
+- [ ] TEST-US1-003 Write Jest test for Todo update persists changes
+- [ ] TEST-US1-004 Write Jest test for soft delete marks todo as deleted
+- [ ] TEST-US1-005 Write Jest test for date range filtering returns correct items
+- [ ] TEST-US1-006 Write Jest test for sorting by priority, due_date, title
+- [ ] TEST-US1-007 Write Jest test for Settings GET returns configurable lists
+
+### Frontend Tests for US1
+
+- [ ] TEST-US1-008 Write Vitest test for TodoList component renders empty state
+- [ ] TEST-US1-009 Write Vitest test for TodoForm validation (required fields)
+- [ ] TEST-US1-010 Write Vitest test for TodoCard displays all fields correctly
+- [ ] TEST-US1-011 Write Vitest test for sorting and filtering UI interactions
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 3b: Implementation - User Story 1 (Priority: P1)
 
 **Goal**: Core todo CRUD with all fields (title, priority, location, dates, notes, soft delete)
 
@@ -74,7 +141,31 @@
 
 ---
 
-## Phase 4: User Story 2 - Assign Todos to Family Members (Priority: P1)
+## Phase 4a: TDD Tests - User Story 2 (Priority: P1)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Backend Tests for US2
+
+- [ ] TEST-US2-001 Write Jest test for TodoAssignee junction table create operation
+- [ ] TEST-US2-002 Write Jest test for GET /api/todos with assignee filter returns correct todos
+- [ ] TEST-US2-003 Write Jest test for POST /api/users creates new family member
+- [ ] TEST-US2-004 Write Jest test for GET /api/users returns all active family members
+- [ ] TEST-US2-005 Write Jest test for Login endpoint returns JWT token
+- [ ] TEST-US2-006 Write Jest test for authentication middleware rejects invalid tokens
+
+### Frontend Tests for US2
+
+- [ ] TEST-US2-007 Write Vitest test for AssigneeSelector multi-select component
+- [ ] TEST-US2-008 Write Vitest test for AssigneeSelector displays selected users correctly
+- [ ] TEST-US2-009 Write Vitest test for MyTodosPage filters by logged-in user
+- [ ] TEST-US2-010 Write Vitest test for LoginForm submits credentials and stores token
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 4b: Implementation - User Story 2 (Priority: P1)
 
 **Goal**: Assign todos to one or more family members, view assigned todos
 
@@ -97,7 +188,29 @@
 
 ---
 
-## Phase 5: User Story 5 - Shopping List Items on Todos (Priority: P1)
+## Phase 5a: TDD Tests - User Story 5 (Priority: P1)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Backend Tests for US5
+
+- [ ] TEST-US5-001 Write Jest test for ShoppingItem create operation
+- [ ] TEST-US5-002 Write Jest test for GET /api/todos/:todoId/shopping-items returns items
+- [ ] TEST-US5-003 Write Jest test for PUT /api/shopping-items/:id updates item
+- [ ] TEST-US5-004 Write Jest test for soft delete on shopping item
+- [ ] TEST-US5-005 Write Jest test for marking item as bought retains visibility
+
+### Frontend Tests for US5
+
+- [ ] TEST-US5-006 Write Vitest test for ShoppingItemList renders items correctly
+- [ ] TEST-US5-007 Write Vitest test for ShoppingItemForm validation
+- [ ] TEST-US5-008 Write Vitest test for bought checkbox toggle updates state
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 5b: Implementation - User Story 5 (Priority: P1)
 
 **Goal**: Add shopping items to todos with description, amount, price, notes; mark as bought
 
@@ -119,7 +232,29 @@
 
 ---
 
-## Phase 6: User Story 6 - Aggregate Shopping List View (Priority: P1)
+## Phase 6a: TDD Tests - User Story 6 (Priority: P1)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Backend Tests for US6
+
+- [ ] TEST-US6-001 Write Jest test for GET /api/shopping-list aggregates all items
+- [ ] TEST-US6-002 Write Jest test for filtering by bought status
+- [ ] TEST-US6-003 Write Jest test for filtering by todo
+- [ ] TEST-US6-004 Write Jest test for filtering by location
+- [ ] TEST-US6-005 Write Jest test for pagination returns correct page
+
+### Frontend Tests for US6
+
+- [ ] TEST-US6-006 Write Vitest test for AggregateShoppingList renders all items
+- [ ] TEST-US6-007 Write Vitest test for ShoppingListFilters apply correctly
+- [ ] TEST-US6-008 Write Vitest test for Mark as Bought quick action
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 6b: Implementation - User Story 6 (Priority: P1)
 
 **Goal**: View all shopping items across all todos in one consolidated list
 
@@ -138,7 +273,28 @@
 
 ---
 
-## Phase 7: User Story 7 - Ready to Execute Status (Priority: P1)
+## Phase 7a: TDD Tests - User Story 7 (Priority: P1)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Backend Tests for US7
+
+- [ ] TEST-US7-001 Write Jest test for is_ready_to_execute returns false when shopping items not bought
+- [ ] TEST-US7-002 Write Jest test for is_ready_to_execute returns false when parent todo incomplete
+- [ ] TEST-US7-003 Write Jest test for is_ready_to_execute returns true when all items bought AND parents complete
+- [ ] TEST-US7-004 Write Jest test for is_ready_to_execute returns true for todo with no items and no parents
+- [ ] TEST-US7-005 Write Jest test for ready status included in todo list response
+
+### Frontend Tests for US7
+
+- [ ] TEST-US7-006 Write Vitest test for ready status indicator shows correct state
+- [ ] TEST-US7-007 Write Vitest test for ready filter returns only ready todos
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 7b: Implementation - User Story 7 (Priority: P1)
 
 **Goal**: Automatic "ready to execute" calculation based on shopping items bought and parent todos complete
 
@@ -156,7 +312,27 @@
 
 ---
 
-## Phase 8: User Story 4 - Parent Todo Blockers (Priority: P2)
+## Phase 8a: TDD Tests - User Story 4 (Priority: P2)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Backend Tests for US4
+
+- [ ] TEST-US4-001 Write Jest test for parent_todo_id field saves correctly
+- [ ] TEST-US4-002 Write Jest test for child todo shows parent as blocker
+- [ ] TEST-US4-003 Write Jest test for cycle detection prevents circular dependencies
+- [ ] TEST-US4-004 Write Jest test for deep parent chain traversal (grandparent)
+
+### Frontend Tests for US4
+
+- [ ] TEST-US4-005 Write Vitest test for parent selector shows all available todos
+- [ ] TEST-US4-006 Write Vitest test for parent blocker displays correctly in TodoCard
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 8b: Implementation - User Story 4 (Priority: P2)
 
 **Goal**: Define parent-child todo dependencies; child cannot start until parent is complete
 
@@ -176,7 +352,27 @@
 
 ---
 
-## Phase 9: User Story 3 - Add Photos to Todos (Priority: P2)
+## Phase 9a: TDD Tests - User Story 3 (Priority: P2)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Backend Tests for US3
+
+- [ ] TEST-US3-001 Write Jest test for Photo model creation with todo reference
+- [ ] TEST-US3-002 Write Jest test for photo upload rejects files over 10MB
+- [ ] TEST-US3-003 Write Jest test for WebP conversion produces valid image
+- [ ] TEST-US3-004 Write Jest test for soft delete on photo
+
+### Frontend Tests for US3
+
+- [ ] TEST-US3-005 Write Vitest test for PhotoUpload accepts valid image files
+- [ ] TEST-US3-006 Write Vitest test for PhotoGallery displays multiple photos
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 9b: Implementation - User Story 3 (Priority: P2)
 
 **Goal**: Attach multiple photos to todos, max 10MB each, convert to WebP
 
@@ -197,7 +393,29 @@
 
 ---
 
-## Phase 10: User Story 8 - Configurable Lists in Settings (Priority: P2)
+## Phase 10a: TDD Tests - User Story 8 (Priority: P2)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Backend Tests for US8
+
+- [ ] TEST-US8-001 Write Jest test for POST /api/settings creates new entry
+- [ ] TEST-US8-002 Write Jest test for PUT /api/settings/:id updates entry
+- [ ] TEST-US8-003 Write Jest test for DELETE /api/settings/:id soft deletes
+- [ ] TEST-US8-004 Write Jest test for duplicate name prevention
+- [ ] TEST-US8-005 Write Jest test for category filtering returns correct items
+
+### Frontend Tests for US8
+
+- [ ] TEST-US8-006 Write Vitest test for SettingsPage renders all categories
+- [ ] TEST-US8-007 Write Vitest test for SettingsForm creates new entry
+- [ ] TEST-US8-008 Write Vitest test for dynamic dropdown uses settings data
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
+## Phase 10b: Implementation - User Story 8 (Priority: P2)
 
 **Goal**: Configure locations, priorities, family members in settings without code changes
 
@@ -235,9 +453,43 @@
 
 ---
 
+## Phase 11a: TDD Tests - User Authentication (Priority: P1)
+
+**Purpose**: Write failing tests BEFORE implementation (Constitution III: Test-First Development)
+
+### Backend Tests for Auth
+
+- [ ] TEST-AUTH-001 Write Jest test for JWT token generation with expiration
+- [ ] TEST-AUTH-002 Write Jest test for auth middleware rejects invalid/missing token
+- [ ] TEST-AUTH-003 Write Jest test for logout endpoint clears session
+
+### Frontend Tests for Auth
+
+- [ ] TEST-AUTH-004 Write Vitest test for LoginForm validation and submission
+- [ ] TEST-AUTH-005 Write Vitest test for ProtectedRoute redirects unauthenticated users
+- [ ] TEST-AUTH-006 Write Vitest test for auth context provides user state
+
+**Checkpoint**: Tests written and failing → Ready for Red-Green cycle
+
+---
+
 ## Phase 12: Polish & Cross-Cutting Concerns
 
 **Purpose**: Improvements that affect multiple user stories
+
+**Constitution IV: Observability** - Structured logging and performance metrics
+
+### Observability Implementation
+
+- [ ] OBS-001 [P] Setup structured logging in backend with request ID tracing in backend/src/utils/logger.py
+- [ ] OBS-002 [P] Add error tracking with full context (stack traces, user session) in backend/src/utils/errors.py
+- [ ] OBS-003 [P] Implement performance metrics for sync/load/save operations in backend/src/utils/metrics.py
+- [ ] OBS-004 [P] Add request timing middleware in backend/src/middleware/timing.py
+- [ ] OBS-005 [P] Implement frontend analytics tracking in frontend/src/utils/analytics.ts
+- [ ] OBS-006 [P] Add error boundary component for React in frontend/src/components/ErrorBoundary.tsx
+- [ ] OBS-007 Add logging for all user actions in frontend/src/utils/userActionLogger.ts
+
+### Polish Tasks
 
 - [ ] T090 [P] Create seed data script with sample users and locations in backend/prisma/seed.py
 - [ ] T091 [P] Add optimistic locking conflict handling in frontend/src/services/api.ts

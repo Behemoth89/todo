@@ -182,7 +182,7 @@ As a user, I want to configure lists like family members, locations, and priorit
 - **FR-003**: System MUST allow marking a location/object (e.g., living room, yard) on each todo.
 - **FR-004**: System MUST allow attaching multiple photos to each todo, with maximum file size 10MB per photo, converted to optimized WebP for storage.
 - **FR-005**: System MUST allow defining parent todo as a blocker - a todo cannot start until parent is complete.
-- **FR-006**: System MUST support multiple levels of parent-child dependencies (grandparent tasks via recursive parent_todo_id references).
+- **FR-006**: System MUST support multiple levels of parent-child dependencies (grandparent tasks via recursive parent_todo_id references). Implementation supports unlimited depth via recursive traversal with cycle detection to prevent circular references.
 - **FR-007**: System MUST allow adding shopping list items to each todo with description, amount, price, and notes fields.
 - **FR-008**: System MUST allow marking shopping items as bought while retaining visibility on the todo.
 - **FR-009**: System MUST provide a separate aggregate shopping list view showing all items across all todos.
@@ -226,5 +226,4 @@ As a user, I want to configure lists like family members, locations, and priorit
 - Photos are stored locally or in cloud storage (actual storage mechanism to be determined during implementation).
 - Date handling follows standard calendar dates with timezone consideration.
 - The system will be a Single Page Application (SPA) with API backend - pure responsive web, optimized for mobile browsers.
-- Initial data will be seeded with sample users and locations for demonstration.
 - Initial data will be seeded with sample family members and locations for demonstration.
