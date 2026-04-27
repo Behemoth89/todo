@@ -1,0 +1,98 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+env/
+.env.local
+.env.*.local
+
+# Node.js
+node_modules/
+package.json
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+
+# TypeScript / Frontend
+frontend/dist/
+frontend/build/
+*.tsbuildinfo
+*.tsbuildinfo
+
+# Backend
+backend/__pycache__/
+backend/src/__pycache__/
+backend/src/**/*.pyc
+backend/src/*.pyc
+backend/.pytest_cache/
+backend/.ruff_cache/
+backend/.mypy_cache/
+backend/.hypothesis/
+backend/coverage/
+backend/.coverage
+backend/htmlcov/
+
+# Prisma
+backend/prisma/*.db
+backend/prisma/*.db-journal
+backend/prisma/migrations/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Uploads
+backend/uploads/
+*.uploads
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Test coverage
+coverage/
+*.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd

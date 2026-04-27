@@ -1,0 +1,47 @@
+.shopping-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.shopping-item-list .item {
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.shopping-item-list .item label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.shopping-item-list .item input[type="checkbox"] {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.shopping-item-list .item .description {
+  flex: 1;
+}
+
+.shopping-item-list .item.bought .description {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.shopping-item-list .amount {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.shopping-item-list .price {
+  font-weight: 600;
+  color: #28a745;
+}
+
+.shopping-item-list .empty {
+  color: #999;
+  font-style: italic;
+}

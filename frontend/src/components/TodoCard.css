@@ -1,0 +1,113 @@
+.todo-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.todo-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.todo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.todo-card.completed {
+  opacity: 0.7;
+}
+
+.todo-card.completed h3 {
+  text-decoration: line-through;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.status {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.status.ready {
+  color: #28a745;
+}
+
+.status.blocked {
+  color: #ffc107;
+}
+
+.card-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.priority {
+  padding: 0.125rem 0.5rem;
+  background: #e9ecef;
+  border-radius: 4px;
+  color: #495057;
+}
+
+.location {
+  padding: 0.125rem 0.5rem;
+  background: #e7f3ff;
+  border-radius: 4px;
+  color: #0056b3;
+}
+
+.due-date {
+  padding: 0.125rem 0.5rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  color: #666;
+}
+
+.due-date.overdue {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.card-assignees {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.assignee {
+  padding: 0.125rem 0.5rem;
+  background: #d4edda;
+  color: #155724;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.more {
+  padding: 0.125rem 0.5rem;
+  background: #e9ecef;
+  color: #6c757d;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
