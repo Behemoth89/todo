@@ -17,9 +17,19 @@ Family Chores Todo App - A responsive SPA web application for managing household
 **Testing**: Vitest (frontend), Jest (backend)  
 **Target Platform**: Web browsers (responsive SPA, mobile-optimized)  
 **Project Type**: Web application (SPA + REST API)  
-**Performance Goals**: <500ms list response, <2min todo creation, 100% ready-status accuracy  
-**Constraints**: Pure responsive web, mobile browser only, optimistic locking for concurrent edits  
+**Performance Goals**: <500ms list response, <2min todo creation, 100% ready-status accuracy
+**Constraints**: Pure responsive web, mobile browser only, optimistic locking for concurrent edits
 **Scale/Scope**: Single family use (~10 users, typical 100s todos)
+
+### Technical Implementation Details
+
+**Optimistic Locking**: Version field on all entities; compare-and-swap on updates; 409 conflict response with current version on mismatch. Frontend handles retry UI.
+
+**Pagination**: Todo list (20 per page, max 100), Aggregate shopping list (50 per page, max 100), Photo gallery (pagination at 20 photos per todo).
+
+**Accessibility**: WCAG 2.1 AA compliance; keyboard navigation for all interactive elements; ARIA labels for status indicators; focus management for modals.
+
+**Photo Storage**: Local filesystem storage in `backend/uploads/photos/` directory, served via static file endpoint. Can be migrated to cloud storage (S3) in production.
 
 ## Constitution Check
 

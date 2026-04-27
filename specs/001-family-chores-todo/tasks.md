@@ -381,7 +381,7 @@
 ### Implementation for User Story 3
 
 - [ ] T070 [P] [US3] Create Photo model in backend/prisma/schema.prisma
-- [ ] T071 [P] [US3] Create photo service with Sharp WebP conversion in backend/src/services/photo_service.py
+- [ ] T071 [P] [US3] Create photo service with Pillow WebP conversion in backend/src/services/photo_service.py
 - [ ] T072 [US3] Implement POST /api/todos/:todoId/photos upload endpoint in backend/src/api/photos.py
 - [ ] T073 [US3] Implement DELETE /api/photos/:id endpoint for soft delete in backend/src/api/photos.py
 - [ ] T074 [US3] Add file size validation (10MB) and format validation in backend/src/utils/validators.py
@@ -520,11 +520,13 @@
 - [ ] T097 Create database backup and restore scripts in backend/scripts/
 - [ ] T098 Update README with deployment instructions
 
-### Performance Verification (SC-001, SC-002)
+### Performance Verification (SC-001, SC-002, SC-004, SC-005, SC-007)
 
 - [ ] PERF-001 Verify todo creation with all fields completes in under 2 minutes (SC-001)
 - [ ] PERF-002 Verify aggregate shopping list loads in under 1 second (SC-002)
 - [ ] PERF-003 Verify todo list sorting/filtering responds in under 500ms (SC-007)
+- [ ] PERF-004 Verify date-based filtering shows/hides soft-deleted items correctly (SC-004)
+- [ ] PERF-005 Verify settings modifications appear in dropdowns immediately (<100ms UI update) (SC-005)
 
 ---
 
@@ -607,6 +609,8 @@ With multiple developers:
 3. P2 stories can be added by any available developer
 
 ---
+
+> **Refactoring Note**: Pagination is implemented in multiple places (T054 shopping list, T094 todo list). Consider extracting to shared `backend/src/utils/pagination.py` service for consistency.
 
 ## Task Summary
 
