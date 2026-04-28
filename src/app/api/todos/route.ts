@@ -14,7 +14,7 @@ const todoSchema = z.object({
   notes: z.string().optional(),
 });
 
-// GET /api/todos - List todos (with soft delete filter per D-02)
+// GET /api/todos - List todos with sorting and filtering (TODO-06, TODO-07)
 export async function GET(req: NextRequest) {
   try {
     const payload = await authMiddleware(req);
@@ -26,23 +26,72 @@ export async function GET(req: NextRequest) {
     }
 
     const { searchParams } = new URL(req.url);
-    const assigneeId = searchParams.get('assigneeId');
+
+    // Sorting (TODO-06)
     const sortBy = searchParams.get('sortBy') || 'createdAt';
     const sortOrder = searchParams.get('sortOrder') || 'desc';
+
+    // Valid sort fields per TODO-06
+    const validSortFields = ['title', 'createdAt', 'dueDate', 'completedAt', 'startDate', 'priorityId', 'locationId'];
+    const sortObj: Record<string, 'asc' | 'desc'> = {};
+    if (validSortFields.includes(sortBy)) {
+      sortObj[sortBy] = sortOrder === 'asc' ? 'asc' : 'desc';
+    } else {
+      sortObj.createdAt = 'desc';
+    }
+
+    // Filtering (TODO-07)
     const filters: Record<string, unknown> = { userId: payload.userId, deletedAt: null };
 
-    // Filter by assignee if specified (ASGN-03)
-    if (assigneeId) {
-      filters.assignees = { some: { familyMemberId: assigneeId } };
+    // Filter by priority
+    const priorityId = searchParams.get('priorityId');
+    if (priorityId) filters.priorityId = priorityId;
+
+    // Filter by location
+    const locationId = searchParams.get('locationId');
+    if (locationId) filters.locationId = locationId;
+
+    // Filter by assignee
+    const assigneeId = searchParams.get('assigneeId');
+    if (assigneeId) filters.assignees = { some: { familyMemberId: assigneeId } };
+
+    // Filter by status (completed/incomplete)
+    const status = searchParams.get('status');
+    if (status === 'completed') filters.completedAt = { not: null };
+    if (status === 'incomplete') filters.completedAt = null;
+
+    // Filter by date range
+    const startDateFrom = searchParams.get('startDateFrom');
+    const startDateTo = searchParams.get('startDateTo');
+    if (startDateFrom || startDateTo) {
+      filters.startDate = {};
+      if (startDateFrom) (filters.startDate as Record<string, Date>).gte = new Date(startDateFrom);
+      if (startDateTo) (filters.startDate as Record<string, Date>).lte = new Date(startDateTo);
     }
 
-    // Build sort object
-    const sortObj: Record<string, string> = {};
-    const validSortFields = ['title', 'createdAt', 'dueDate', 'completedAt', 'priorityId', 'locationId'];
-    if (validSortFields.includes(sortBy)) {
-      sortObj[sortBy] = sortOrder;
+    const dueDateFrom = searchParams.get('dueDateFrom');
+    const dueDateTo = searchParams.get('dueDateTo');
+    if (dueDateFrom || dueDateTo) {
+      filters.dueDate = {};
+      if (dueDateFrom) (filters.dueDate as Record<string, Date>).gte = new Date(dueDateFrom);
+      if (dueDateTo) (filters.dueDate as Record<string, Date>).lte = new Date(dueDateTo);
     }
 
+    const completedFrom = searchParams.get('completedFrom');
+    const completedTo = searchParams.get('completedTo');
+    if (completedFrom || completedTo) {
+      filters.completedAt = filters.completedAt || {};
+      if (completedFrom) (filters.completedAt as Record<string, Date>).gte = new Date(completedFrom);
+      if (completedTo) (filters.completedAt as Record<string, Date>).lte = new Date(completedTo);
+    }
+
+    // Filter by ready-to-execute (RDY-04)
+    const readyToExecute = searchParams.get('readyToExecute');
+    if (readyToExecute !== null) {
+      filters.readyToExecute = readyToExecute === 'true';
+    }
+
+    // Fetch with filters and sort
     const todos = await prisma.todo.findMany({
       where: filters,
       include: {
