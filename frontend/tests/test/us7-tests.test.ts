@@ -4,7 +4,7 @@ import path from 'path'
 
 describe('TEST-US7-001: is_ready_to_execute returns false when shopping items not bought', () => {
   it('should have calculate_ready_status function in todos.py', () => {
-    const apiPath = path.resolve(__dirname, '../../backend/src/api/todos.py')
+    const apiPath = path.resolve(__dirname, '../../../backend/src/api/todos.py')
     const api = fs.readFileSync(apiPath, 'utf-8')
     expect(api).toContain('calculate_ready_status')
   })
@@ -29,7 +29,7 @@ describe('TEST-US7-006: Ready status indicator shows correct state', () => {
 
 describe('TEST-US7-007: Ready filter returns only ready todos', () => {
   it('should support filter_ready parameter', () => {
-    const apiPath = path.resolve(__dirname, '../../backend/src/api/todos.py')
+    const apiPath = path.resolve(__dirname, '../../../backend/src/api/todos.py')
     const api = fs.readFileSync(apiPath, 'utf-8')
     expect(api).toContain('filter_ready')
   })

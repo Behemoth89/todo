@@ -4,7 +4,7 @@ import path from 'path'
 
 describe('TEST-US3-001: Photo model creation with todo reference', () => {
   it('should have Photo model in schema', () => {
-    const schemaPath = path.resolve(__dirname, '../../backend/prisma/schema.prisma')
+    const schemaPath = path.resolve(__dirname, '../../../backend/prisma/schema.prisma')
     const schema = fs.readFileSync(schemaPath, 'utf-8')
     expect(schema).toContain('model Photo')
     expect(schema).toContain('todoId')
@@ -13,14 +13,14 @@ describe('TEST-US3-001: Photo model creation with todo reference', () => {
 
 describe('TEST-US3-002: Photo upload rejects files over 10MB', () => {
   it('should validate file size', () => {
-    const validatorsPath = path.resolve(__dirname, '../../backend/src/utils/validators.py')
+    const validatorsPath = path.resolve(__dirname, '../../../backend/src/utils/validators.py')
     expect(fs.existsSync(validatorsPath)).toBe(true)
   })
 })
 
 describe('TEST-US3-003: WebP conversion produces valid image', () => {
   it('should have photos.py with conversion logic', () => {
-    const photosPath = path.resolve(__dirname, '../../backend/src/api/photos.py')
+    const photosPath = path.resolve(__dirname, '../../../backend/src/api/photos.py')
     expect(fs.existsSync(photosPath)).toBe(true)
   })
 })

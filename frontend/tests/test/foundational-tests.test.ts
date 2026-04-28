@@ -16,14 +16,14 @@ describe('TEST-FOUND-001: Prisma schema compiles without errors', () => {
     const schemaPath = path.resolve(__dirname, '../../../backend/prisma/schema.prisma')
     const schema = fs.readFileSync(schemaPath, 'utf-8')
     expect(schema).toContain('model User')
-    expect(schema).toContain('id String')
+    expect(schema).toMatch(/id\s+String/)
   })
 
   it('should have Todo model', () => {
     const schemaPath = path.resolve(__dirname, '../../../backend/prisma/schema.prisma')
     const schema = fs.readFileSync(schemaPath, 'utf-8')
     expect(schema).toContain('model Todo')
-    expect(schema).toContain('title String')
+    expect(schema).toMatch(/title\s+String/)
   })
 
   it('should have ShoppingItem model', () => {

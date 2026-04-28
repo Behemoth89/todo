@@ -20,7 +20,7 @@ describe('TEST-US6-002: Filtering by bought status', () => {
 
 describe('TEST-US6-005: Pagination returns correct page', () => {
   it('should have shopping list endpoint with pagination', () => {
-    const apiPath = path.resolve(__dirname, '../../backend/src/api/shopping_list.py')
+    const apiPath = path.resolve(__dirname, '../../../backend/src/api/shopping_list.py')
     expect(fs.existsSync(apiPath)).toBe(true)
   })
 })

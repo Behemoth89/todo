@@ -4,7 +4,7 @@ import path from 'path'
 
 describe('OBS-001: Structured logging in backend with request ID tracing', () => {
   it('should have logger.py', () => {
-    const loggerPath = path.resolve(__dirname, '../../backend/src/utils/logger.py')
+    const loggerPath = path.resolve(__dirname, '../../../backend/src/utils/logger.py')
     expect(fs.existsSync(loggerPath)).toBe(true)
     const logger = fs.readFileSync(loggerPath, 'utf-8')
     expect(logger).toContain('get_logger')
@@ -13,7 +13,7 @@ describe('OBS-001: Structured logging in backend with request ID tracing', () =>
 
 describe('OBS-002: Error tracking with full context', () => {
   it('should have error_handler function', () => {
-    const errorsPath = path.resolve(__dirname, '../../backend/src/utils/errors.py')
+    const errorsPath = path.resolve(__dirname, '../../../backend/src/utils/errors.py')
     expect(fs.existsSync(errorsPath)).toBe(true)
     const errors = fs.readFileSync(errorsPath, 'utf-8')
     expect(errors).toContain('error_handler')
@@ -22,14 +22,14 @@ describe('OBS-002: Error tracking with full context', () => {
 
 describe('OBS-003: Performance metrics for operations', () => {
   it('should have metrics.py', () => {
-    const metricsPath = path.resolve(__dirname, '../../backend/src/utils/metrics.py')
+    const metricsPath = path.resolve(__dirname, '../../../backend/src/utils/metrics.py')
     expect(fs.existsSync(metricsPath)).toBe(true)
   })
 })
 
 describe('OBS-004: Request timing middleware', () => {
   it('should have timing middleware', () => {
-    const timingPath = path.resolve(__dirname, '../../backend/src/middleware/timing.py')
+    const timingPath = path.resolve(__dirname, '../../../backend/src/middleware/timing.py')
     expect(fs.existsSync(timingPath)).toBe(true)
   })
 })
