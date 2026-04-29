@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { authMiddleware } from '@/lib/auth';
+import { detectCycle, recalculateReadyStatus } from '@/lib/ready-status';
 
 const updateSchema = z.object({
   title: z.string().min(1).optional(),
@@ -9,6 +10,7 @@ const updateSchema = z.object({
   priorityId: z.string().nullable().optional(),
   locationId: z.string().nullable().optional(),
   assigneeIds: z.array(z.string()).optional(),
+  parentId: z.string().nullable().optional(),
   startDate: z.string().datetime().nullable().optional(),
   dueDate: z.string().datetime().nullable().optional(),
   notes: z.string().nullable().optional(),
@@ -75,7 +77,6 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
     const { id } = await params;
     const body = updateSchema.parse(await req.json());
 
-    // Check todo exists and belongs to user
     const existing = await prisma.todo.findFirst({
       where: { id, userId: payload.userId, deletedAt: null },
     });
@@ -87,7 +88,8 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
       );
     }
 
-    // Handle assignee update
+    const updateData: any = {};
+
     if (body.assigneeIds !== undefined) {
       await prisma.todoAssignee.deleteMany({ where: { todoId: id } });
       if (body.assigneeIds.length > 0) {
@@ -100,23 +102,54 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
       }
     }
 
+    if (body.parentId !== undefined) {
+      if (body.parentId === null) {
+        updateData.parentId = null;
+      } else {
+        const hasCycle = await detectCycle(id, body.parentId);
+        if (hasCycle) {
+          return NextResponse.json(
+            { success: false, data: null, error: 'Setting this parent would create a circular dependency' },
+            { status: 400 }
+          );
+        }
+        
+        const parentTodo = await prisma.todo.findFirst({
+          where: { id: body.parentId, deletedAt: null, userId: payload.userId },
+        });
+        
+        if (!parentTodo) {
+          return NextResponse.json(
+            { success: false, data: null, error: 'Parent todo not found' },
+            { status: 404 }
+          );
+        }
+        
+        updateData.parentId = body.parentId;
+      }
+    }
+
+    if (body.title) updateData.title = body.title;
+    if (body.description !== undefined) updateData.description = body.description;
+    if (body.priorityId !== undefined) updateData.priorityId = body.priorityId;
+    if (body.locationId !== undefined) updateData.locationId = body.locationId;
+    if (body.startDate !== undefined) updateData.startDate = body.startDate ? new Date(body.startDate) : null;
+    if (body.dueDate !== undefined) updateData.dueDate = body.dueDate ? new Date(body.dueDate) : null;
+    if (body.notes !== undefined) updateData.notes = body.notes;
+
     const todo = await prisma.todo.update({
       where: { id },
-      data: {
-        ...(body.title && { title: body.title }),
-        ...(body.description !== undefined && { description: body.description }),
-        ...(body.priorityId !== undefined && { priorityId: body.priorityId }),
-        ...(body.locationId !== undefined && { locationId: body.locationId }),
-        ...(body.startDate !== undefined && { startDate: body.startDate ? new Date(body.startDate) : null }),
-        ...(body.dueDate !== undefined && { dueDate: body.dueDate ? new Date(body.dueDate) : null }),
-        ...(body.notes !== undefined && { notes: body.notes }),
-      },
+      data: updateData,
       include: {
         priority: true,
         location: true,
         assignees: { include: { familyMember: true } },
       },
     });
+
+    if (Object.keys(updateData).length > 0) {
+      await recalculateReadyStatus(id);
+    }
 
     return NextResponse.json({
       success: true,
@@ -156,7 +189,6 @@ export async function DELETE(req: NextRequest, { params }: RouteParams) {
       );
     }
 
-    // Soft delete: set deletedAt timestamp (per D-02)
     await prisma.todo.update({
       where: { id },
       data: { deletedAt: new Date() },

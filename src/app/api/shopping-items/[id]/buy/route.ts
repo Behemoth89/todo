@@ -7,49 +7,47 @@ interface RouteParams {
   params: Promise<{ id: string }>;
 }
 
-// POST /api/todos/[id]/complete - Mark todo as complete (TODO-04)
+// POST /api/shopping-items/[id]/buy - Toggle bought status
 export async function POST(req: NextRequest, { params }: RouteParams) {
   try {
     const payload = await authMiddleware(req);
     if (!payload) {
       return NextResponse.json(
-        { success: false, data: null, error: 'Authentication required' },
+        { success: false, data: null, error: 'Unauthorized' },
         { status: 401 }
       );
     }
 
-    const { id } = await params;
+    const { id: itemId } = await params;
 
-    const todo = await prisma.todo.findFirst({
-      where: { id, userId: payload.userId, deletedAt: null },
+    const item = await prisma.shoppingItem.findUnique({
+      where: { id: itemId },
+      include: { todo: { select: { userId: true, id: true } },
     });
 
-    if (!todo) {
+    if (!item || item.deletedAt || item.todo.userId !== payload.userId) {
       return NextResponse.json(
-        { success: false, data: null, error: 'Todo not found' },
+        { success: false, data: null, error: 'Item not found' },
         { status: 404 }
       );
     }
 
-    const updated = await prisma.todo.update({
-      where: { id },
-      data: { completedAt: new Date() },
-      include: {
-        priority: true,
-        location: true,
-        assignees: { include: { familyMember: true } },
-      },
+    const boughtAt = item.boughtAt ? null : new Date();
+
+    const updated = await prisma.shoppingItem.update({
+      where: { id: itemId },
+      data: { boughtAt },
     });
 
-    await recalculateReadyStatus(id);
+    await recalculateReadyStatus(item.todoId);
 
     return NextResponse.json({
       success: true,
-      data: { todo: updated },
+      data: { item: updated },
       error: null,
     });
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : 'Failed to complete todo';
+    const message = error instanceof Error ? error.message : 'Failed to toggle bought status';
     return NextResponse.json(
       { success: false, data: null, error: message },
       { status: 400 }

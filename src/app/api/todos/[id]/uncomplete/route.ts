@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { authMiddleware } from '@/lib/auth';
+import { recalculateReadyStatus } from '@/lib/ready-status';
 
 interface RouteParams {
   params: Promise<{ id: string }>;
@@ -30,7 +31,6 @@ export async function POST(req: NextRequest, { params }: RouteParams) {
       );
     }
 
-    // Clear completedAt
     const updated = await prisma.todo.update({
       where: { id },
       data: { completedAt: null },
@@ -40,6 +40,8 @@ export async function POST(req: NextRequest, { params }: RouteParams) {
         assignees: { include: { familyMember: true } },
       },
     });
+
+    await recalculateReadyStatus(id);
 
     return NextResponse.json({
       success: true,

@@ -1,7 +1,7 @@
 # Roadmap: Family Chores Todo App
 
 **Created:** 2026-04-28
-**Phases:** 2
+**Phases:** 3
 **Requirements:** 48 (all v1)
 
 ## Phase 1: Foundation
@@ -48,6 +48,12 @@
 6. Soft delete hides items but preserves them with timestamps
 7. Date-based filtering shows/hides items correctly
 
+**Plans:** 
+
+- [x] 01-01-PLAN.md — Database & Authentication Setup
+- [x] 01-02-PLAN.md — Todo CRUD & Assignment
+- [x] 01-03-PLAN.md — Settings & Sorting/Filtering
+
 ---
 
 ## Phase 2: Advanced Features
@@ -91,14 +97,48 @@
 
 ---
 
+## Phase 3: Frontend UI
+
+**Goal:** User interface and views for the todo app using Vue SPA.
+
+### Requirements Covered
+
+All requirements from Phase 1-2 with interactive frontend:
+- AUTH-01 through AUTH-04 (Login/Logout views)
+- TODO-01 through TODO-07 (Todo list and CRUD views)
+- ASGN-01 through ASGN-03 (Assignment UI)
+- LOC-01 through LOC-04 (Location management)
+- PHOTO-01 through PHOTO-04 (Photo attachments UI)
+- DEPN-01 through DEPN-03 (Parent dependencies UI)
+- SHOP-01 through SHOP-04 (Shopping items UI)
+- AGGR-01 through AGGR-04 (Aggregate shopping list)
+- RDY-01 through RDY-04 (Ready-to-execute display)
+- SET-01 through SET-04 (Settings configuration UI)
+
+**Success Criteria:**
+
+1. Full interactive frontend for all user tasks
+2. Login/logout and authentication flow works
+3. Todo CRUD with all fields in UI
+4. Shopping lists visible and manageable in UI
+5. Photo attachments can be viewed in UI
+6. Mobile-first responsive design works on all devices
+
+**Plans:** 
+
+- [ ] Add to plan
+
+---
+
 ## Phase Summary
 
-| Phase | Name | Requirements | Success Criteria |
-|-------|------|-------------|----------------|
-| 1 | Foundation | 25 | 7 |
-| 2 | Advanced Features | 23 | 6 |
+| Phase | Name | Requirements | Success Criteria | Status |
+|-------|------|-------------|----------------|--------|
+| 1 | Foundation | 25 | 7 | ● Complete |
+| 2 | Advanced Features | 23 | 6 | ● Complete |
+| 3 | Frontend UI | 48 | 6 | ◐ In progress |
 
-**Total:** 2 phases | 48 requirements | 13 success criteria
+**Total:** 3 phases | 48 requirements | 13 success criteria | Milestone 67%
 
 ---
 
