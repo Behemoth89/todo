@@ -32,7 +32,7 @@ export async function createRefreshToken(payload: TokenPayload): Promise<string>
 export async function verifyToken(token: string): Promise<TokenPayload | null> {
   try {
     const { payload } = await jwtVerify(token, JWT_SECRET);
-    return payload as TokenPayload;
+    return payload as unknown as TokenPayload;
   } catch {
     return null;
   }

@@ -126,6 +126,7 @@ const shoppingItems = ref<ShoppingItem[]>([])
 const photos = ref<Photo[]>([])
 const loading = ref(false)
 const editDialog = ref(false)
+const deleteDialog = ref(false)
 const addShoppingDialog = ref(false)
 const fileInput = ref<HTMLInputElement | null>(null)
 

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { createAccessToken, createRefreshToken } from '@/lib/auth';
-import { verify } from 'bcryptjs';
+import { compare } from 'bcryptjs';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const validPassword = await verify(body.password, user.passwordHash);
+    const validPassword = await compare(body.password, user.passwordHash);
     
     if (!validPassword) {
       return NextResponse.json(

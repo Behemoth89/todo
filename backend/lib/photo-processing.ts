@@ -14,11 +14,11 @@ export function validatePhotoSize(buffer: Buffer): boolean {
 }
 
 export async function convertToWebP(buffer: Buffer): Promise<PhotoProcessingResult> {
-  const sharpInstance = typeof buffer === 'string' 
-    ? (await import('sharp'))(Buffer.from(buffer))
-    : await import('sharp')(buffer);
+  const sharpModule = await import('sharp');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const sharpInstance: any = sharpModule.default ? sharpModule.default : sharpModule;
   
-  const metadata = await sharpInstance.metadata();
+  const metadata = await sharpInstance(buffer).metadata();
   const width = metadata.width || 0;
   const height = metadata.height || 0;
   
@@ -35,12 +35,12 @@ export async function convertToWebP(buffer: Buffer): Promise<PhotoProcessingResu
     }
   }
   
-  const data = await sharpInstance
+  const data = await sharpInstance(buffer)
     .resize(fullWidth, fullHeight, { fit: 'inside' })
     .webp({ quality: FULL_QUALITY })
     .toBuffer();
   
-  const thumbnail = await sharpInstance
+  const thumbnail = await sharpInstance(buffer)
     .resize(THUMBNAIL_SIZE, THUMBNAIL_SIZE, { fit: 'cover' })
     .webp({ quality: THUMBNAIL_QUALITY })
     .toBuffer();
@@ -49,7 +49,9 @@ export async function convertToWebP(buffer: Buffer): Promise<PhotoProcessingResu
 }
 
 export async function generateThumbnail(buffer: Buffer): Promise<Buffer> {
-  const sharp = (await import('sharp')).default;
+  const sharpModule = await import('sharp');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const sharp: any = sharpModule.default ? sharpModule.default : sharpModule;
   return sharp(buffer)
     .resize(THUMBNAIL_SIZE, THUMBNAIL_SIZE, { fit: 'cover' })
     .webp({ quality: THUMBNAIL_QUALITY })

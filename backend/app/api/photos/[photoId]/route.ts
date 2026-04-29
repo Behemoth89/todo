@@ -32,7 +32,7 @@ export async function GET(
     
     const imageData = thumbnail ? photo.thumbnail : photo.data;
     
-    return new NextResponse(imageData, {
+    return new NextResponse(new Uint8Array(imageData), {
       headers: {
         'Content-Type': 'image/webp',
         'Cache-Control': 'public, max-age=31536000',

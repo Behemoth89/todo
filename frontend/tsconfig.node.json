@@ -9,7 +9,10 @@
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "strict": true,
-    "noEmit": true
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   },
   "include": ["vite.config.ts"]
 }

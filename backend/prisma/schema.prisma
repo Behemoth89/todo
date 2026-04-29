@@ -34,7 +34,6 @@ model FamilyMember {
   deletedAt DateTime? @map("deleted_at")
 
   user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  todos     Todo[]
   assignee  TodoAssignee[]
 
   @@map("family_members")

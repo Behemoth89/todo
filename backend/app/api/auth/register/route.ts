@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { createAccessToken, createRefreshToken } from '@/lib/auth';
-import { hash, verify } from 'bcryptjs';
+import { hash, compare } from 'bcryptjs';
 
 const registerSchema = z.object({
   email: z.string().email(),

@@ -31,7 +31,7 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
 
     const item = await prisma.shoppingItem.findUnique({
       where: { id: itemId },
-      include: { todo: { select: { userId: true, id: true } },
+      include: { todo: { select: { userId: true, id: true } } },
     });
 
     if (!item || item.deletedAt || item.todo.userId !== payload.userId) {
@@ -85,7 +85,7 @@ export async function DELETE(req: NextRequest, { params }: RouteParams) {
 
     const item = await prisma.shoppingItem.findUnique({
       where: { id: itemId },
-      include: { todo: { select: { userId: true, id: true } },
+      include: { todo: { select: { userId: true, id: true } } },
     });
 
     if (!item || item.deletedAt || item.todo.userId !== payload.userId) {
