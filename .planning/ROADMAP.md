@@ -25,6 +25,7 @@
 ### Plans
 
 - [x] 01-01-PLAN.md — Auth foundation (Prisma + JWT + all endpoints)
+- [x] 01-02-PLAN.md — Frontend Vue 3 + Pinia auth UI
 
 1. User can register with email/password and create family or enter invite code
 2. User can log in and receive JWT access token + refresh token
